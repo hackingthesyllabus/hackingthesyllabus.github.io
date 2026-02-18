@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,6 +6,10 @@
 <title>Hacking the Syllabus | Strategic Facilitation by Ikee Gibson</title>
 <meta name="description" content="Strategic facilitation workshops for vision, culture, alignment, and constructive conversations. Toronto, Ontario.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Futura:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -19,7 +24,7 @@
 
 body{
   margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  font-family: "Futura", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background:var(--bg);
   color:var(--ink);
   line-height:1.55;
@@ -34,49 +39,50 @@ body{
 header{
   background:var(--deep);
   color:#f5f3ea;
-  padding:42px 0 64px;
+  padding:52px 0 82px;
   text-align:center;
 }
 
 header h1{
-  font-size:44px;
+  font-size:46px;
   margin:0;
-  letter-spacing:-0.5px;
+  letter-spacing:-0.4px;
 }
 
 header .sub{
-  max-width:760px;
+  max-width:820px;
   margin:14px auto 0;
   font-size:16px;
   opacity:0.92;
 }
 
 header .lead{
-  max-width:800px;
-  margin:16px auto 0;
-  font-size:17px;
-  opacity:0.92;
+  max-width:860px;
+  margin:18px auto 0;
+  font-size:18px;
+  opacity:0.94;
 }
 
 .button{
   display:inline-block;
-  margin-top:18px;
+  margin-top:22px;
   padding:12px 18px;
   background:#f5f3ea;
   color:var(--deep);
   text-decoration:none;
-  border-radius:10px;
+  border-radius:12px;
   font-weight:650;
+  border:1px solid rgba(0,0,0,0.08);
 }
 
 .hero{
-  margin-top:-34px;
-  padding-bottom:24px;
+  margin-top:-38px;
+  padding-bottom:30px;
 }
 
 .hero img{
   width:100%;
-  height:500px;
+  height:520px;
   object-fit:cover;
   border-radius:18px;
   border:1px solid var(--line);
@@ -84,25 +90,25 @@ header .lead{
 }
 
 section{
-  padding:34px 0;
+  padding:54px 0;
 }
 
 h2{
-  font-size:24px;
-  margin:0 0 10px;
+  font-size:26px;
+  margin:0 0 12px;
   letter-spacing:-0.2px;
 }
 
 .section-intro{
   color:var(--muted);
-  max-width:820px;
-  margin:0 0 16px;
+  max-width:900px;
+  margin:0 0 26px;
   font-size:15px;
 }
 
 .grid{
   display:grid;
-  gap:14px;
+  gap:18px;
 }
 
 @media(min-width:900px){
@@ -115,35 +121,33 @@ h2{
   background:var(--paper);
   border:1px solid var(--line);
   border-radius:16px;
-  padding:18px;
+  padding:22px;
+  box-shadow:0 10px 26px rgba(0,0,0,0.05);
 }
 
 .card h3{
-  margin:0 0 8px;
-  font-size:17px;
+  margin:0 0 10px;
+  font-size:18px;
   letter-spacing:-0.1px;
 }
 
 .card p{
   color:var(--muted);
   margin:0;
-  font-size:14px;
+  font-size:14.5px;
 }
 
-.pills{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:12px;
+.callout{
+  margin-top:22px;
+  background:rgba(183,155,92,0.10);
+  border:1px solid rgba(183,155,92,0.25);
+  border-radius:16px;
+  padding:18px 18px;
+  color:var(--ink);
 }
 
-.pill{
-  font-size:12px;
-  padding:6px 10px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background:#faf9f5;
-  color:var(--muted);
+.callout strong{
+  color:var(--deep);
 }
 
 .process{
@@ -156,19 +160,20 @@ h2{
   background:var(--paper);
   border:1px solid var(--line);
   border-radius:16px;
-  padding:18px;
-  max-width:680px;
+  padding:22px;
+  max-width:720px;
+  box-shadow:0 10px 26px rgba(0,0,0,0.05);
 }
 
 .small{
-  font-size:12px;
+  font-size:12.5px;
   color:var(--muted);
-  margin-top:10px;
+  margin-top:12px;
 }
 
 footer{
   border-top:1px solid var(--line);
-  padding:28px 0;
+  padding:34px 0;
   font-size:13px;
   color:var(--muted);
   text-align:center;
@@ -184,7 +189,7 @@ footer{
     <div class="sub">Strategic facilitation for vision, culture, and alignment by Ikee Gibson</div>
 
     <div class="lead">
-      I help emerging and established organizations grow by facilitating hands on strategy workshops that surface hidden assumptions, strengthen alignment, and make difficult conversations constructive.
+      I help emerging and established organizations grow by facilitating hands-on strategy workshops that surface hidden assumptions, strengthen alignment, and make difficult conversations constructive.
     </div>
 
     <a class="button" href="mailto:hackingthesyllabus@gmail.com?subject=Workshop%20Inquiry">Request a consultation</a>
@@ -201,73 +206,70 @@ footer{
   <div class="wrap">
     <h2>What I offer</h2>
     <p class="section-intro">
-      These workshops are designed to be disarming without being superficial. They create a structured way for people to think together, name what is happening, and leave with clarity that can actually be implemented.
+      These workshops create a structured way for people to think together, name what is happening, and leave with clarity that can actually be implemented.
+      They can be designed for a more executive tone or a more connective team tone, without losing rigor.
     </p>
 
     <div class="grid">
       <div class="card">
-        <h3>Strategic vision and future alignment</h3>
+        <h3>Leadership and cross-level alignment</h3>
         <p>
-          We build a shared picture of where the organization is going, what tradeoffs matter, and what decisions need to be made next so execution is clearer and more coordinated.
+          These sessions bring executives, managers, and frontline staff into one structured conversation so expectations align and silos weaken.
+          Participants build a shared working model of how the organization operates, where friction lives, and what must change for coordination to improve.
         </p>
-        <div class="pills">
-          <span class="pill">future thinking</span>
-          <span class="pill">priorities</span>
-          <span class="pill">decision clarity</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Leadership and cross level alignment</h3>
-        <p>
-          We bring different levels of the organization into the same conversation so silos shrink, expectations align, and teams can coordinate around a shared understanding of how the system actually works.
-        </p>
-        <div class="pills">
-          <span class="pill">stakeholder integration</span>
-          <span class="pill">systems view</span>
-          <span class="pill">shared language</span>
-        </div>
       </div>
 
       <div class="card">
         <h3>Culture and team cohesion</h3>
         <p>
-          These workshops help organizations strengthen connections across teams and roles by making norms visible, building trust through structured dialogue, and creating practical agreements about how people will work together.
+          These sessions strengthen trust and accountability by surfacing what is usually left unsaid, clarifying expectations,
+          and helping teams agree on how they will work together under pressure.
+          The goal is durable cohesion that supports performance.
         </p>
-        <div class="pills">
-          <span class="pill">trust</span>
-          <span class="pill">norms</span>
-          <span class="pill">cohesion</span>
-        </div>
+      </div>
+
+      <div class="card">
+        <h3>Strategic vision and direction setting</h3>
+        <p>
+          These sessions help leadership clarify priorities, make tradeoffs explicit, and leave with a shared direction and clear next steps.
+          Participants build a concrete picture of what success requires and what must stop, start, or shift.
+        </p>
       </div>
 
       <div class="card">
         <h3>Equity, diversity, and inclusion dialogue</h3>
         <p>
-          We create a guided space for people to understand different perspectives and how those perspectives shape teamwork, client relationships, and organizational durability, including when tension or uncertainty is present.
+          These sessions create a structured way to discuss equity and difference without escalation.
+          Teams build shared understanding of how identity, perspective, and power shape collaboration and client relationships,
+          while protecting organizational stability and long term durability.
         </p>
-        <div class="pills">
-          <span class="pill">perspective integration</span>
-          <span class="pill">durability</span>
-          <span class="pill">workplace climate</span>
-        </div>
       </div>
+    </div>
+
+    <div class="callout">
+      <strong>This is not generic corporate training.</strong>
+      It is facilitated sensemaking that disarms defensiveness and makes it easier for people to speak honestly about what matters.
+      The room can feel lighter. The work underneath is focused, rigorous, and oriented toward real decisions, culture change, and forward motion.
     </div>
   </div>
 </section>
 
 <section id="method">
   <div class="wrap">
-    <h2>Serious play inspired method</h2>
+    <h2>Method and outputs</h2>
     <p class="section-intro">
-      I use a serious play inspired approach that often includes LEGO and other simple games. The point is not play for its own sake. The point is to lower defenses so groups can surface what is normally hard to say, explore possibilities more freely, and move toward change, vision, or healing in a way that feels safe and grounded.
+      For over eight years, I have designed and facilitated serious play style workshops across boardroom settings, team environments, education spaces, and youth focused programs.
+      Sessions often include LEGO and other simple hands-on tools.
+      The purpose is to lower defenses so groups can surface what is usually hard to say, explore options faster, and move toward shared clarity.
     </p>
 
     <div class="grid">
       <div class="card">
-        <h3>Why it works</h3>
+        <h3>Research grounded documentation</h3>
         <p>
-          Building and sharing makes assumptions visible. It also creates a shared object to talk about. That shift helps people move from blame and debate toward clarity, curiosity, and action.
+          I combine facilitation with research based techniques for data gathering, coding, and synthesis.
+          Organizations can receive tailored deliverables such as thematic summaries, decision logs, and management ready reports.
+          Reporting can draw on qualitative and quantitative approaches depending on the goal and the engagement format.
         </p>
       </div>
 
@@ -285,21 +287,25 @@ footer{
   <div class="wrap">
     <h2>Formats</h2>
     <p class="section-intro">
-      Sessions can be two hours, three hours, half day, full day, or a three day engagement that brings in different stakeholder groups. Group sizes can be four to twenty. The ideal size is eight to twelve.
+      Sessions can be two hours, three hours, half day, full day, or a three day engagement that brings in different stakeholder groups.
+      Group sizes can be four to twenty. The ideal size is eight to twelve.
     </p>
 
     <div class="grid">
       <div class="card">
-        <h3>Workflow</h3>
+        <h3>How it works</h3>
         <p>
-          We start with a short discovery conversation. I then design the session structure and any light prework. We run the workshop. You leave with clear themes and next steps that people can carry forward.
+          We start with a short discovery conversation to clarify outcomes and participants.
+          I then design the session structure and any light prework.
+          We run the workshop and close with clear themes, decisions, and next steps.
         </p>
       </div>
 
       <div class="card">
         <h3>Documentation options</h3>
         <p>
-          Documentation can include a summary of themes, a management ready synthesis, and optional photo or video based documentation for the right use cases. Scope depends on your needs and the session format.
+          Documentation can include a synthesis memo, leadership ready recommendations, or visual documentation when useful.
+          Scope depends on your goals, session length, and how many stakeholder groups are involved.
         </p>
       </div>
     </div>
@@ -314,11 +320,11 @@ footer{
     </p>
 
     <div class="pricing-box">
-      <p style="margin:0;color:var(--muted);font-size:14px;">
+      <p style="margin:0;color:var(--muted);font-size:15px;">
         Engagements typically range from <strong>1,500 to 15,000 CAD</strong> depending on scope.
       </p>
       <div class="small">
-        If you email me a quick description of the goal, group size, and timeline, I will suggest a format and a clear quote.
+        Email a quick description of the goal, group size, and timeline. I will suggest a format and provide a clear quote.
       </div>
     </div>
   </div>
@@ -328,8 +334,11 @@ footer{
   <div class="wrap">
     <h2>About</h2>
     <div class="card">
-      <p style="margin:0;color:var(--muted);font-size:14px;max-width:92ch;">
-        Ikee Gibson is a PhD candidate whose work is grounded in organizational change and in how organizations reinterpret demographic change. This approach draws on theoretical and empirical research in organizational development, organizational culture, work stratification and markets, and equity, diversity, and inclusion, with attention to causal complexity and endogeneity. The goal is to help organizations think together with clarity and momentum.
+      <p style="margin:0;color:var(--muted);font-size:14.5px;max-width:92ch;">
+        Ikee Gibson is a PhD candidate whose research focuses on organizational change and how institutions interpret and respond to demographic shifts.
+        This work draws on empirical and theoretical research in organizational development, organizational culture, work stratification and markets,
+        equity, diversity and inclusion, and indigeneity, including attention to Indigenous worldviews and collective ways of knowing.
+        The goal is to translate research into practical workshop design that helps teams move from stuck dynamics to shared clarity and forward motion.
       </p>
     </div>
   </div>
@@ -343,7 +352,7 @@ footer{
     </p>
 
     <div class="card">
-      <p style="margin:0 0 12px;color:var(--muted);font-size:14px;">
+      <p style="margin:0 0 14px;color:var(--muted);font-size:15px;">
         <a href="mailto:hackingthesyllabus@gmail.com?subject=Workshop%20Inquiry">hackingthesyllabus@gmail.com</a>
       </p>
       <a class="button" href="mailto:hackingthesyllabus@gmail.com?subject=Workshop%20Inquiry">Request a consultation</a>
@@ -361,3 +370,4 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 </body>
 </html>
+```
