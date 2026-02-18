@@ -14,6 +14,7 @@
   --line:#e3e0d8;
   --accent:#b79b5c;
   --deep:#2f372c;
+  --paper:#fff;
 }
 
 body{
@@ -21,7 +22,7 @@ body{
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
   background:var(--bg);
   color:var(--ink);
-  line-height:1.5;
+  line-height:1.55;
 }
 
 .wrap{
@@ -33,7 +34,7 @@ body{
 header{
   background:var(--deep);
   color:#f5f3ea;
-  padding:50px 0 80px;
+  padding:42px 0 64px;
   text-align:center;
 }
 
@@ -43,54 +44,65 @@ header h1{
   letter-spacing:-0.5px;
 }
 
-header p{
-  max-width:700px;
-  margin:20px auto 0;
+header .sub{
+  max-width:760px;
+  margin:14px auto 0;
+  font-size:16px;
+  opacity:0.92;
+}
+
+header .lead{
+  max-width:800px;
+  margin:16px auto 0;
   font-size:17px;
-  opacity:0.9;
+  opacity:0.92;
 }
 
 .button{
   display:inline-block;
-  margin-top:25px;
+  margin-top:18px;
   padding:12px 18px;
   background:#f5f3ea;
   color:var(--deep);
   text-decoration:none;
   border-radius:10px;
-  font-weight:600;
+  font-weight:650;
 }
 
 .hero{
-  margin-top:-50px;
+  margin-top:-34px;
+  padding-bottom:24px;
 }
 
 .hero img{
   width:100%;
-  height:520px;
+  height:500px;
   object-fit:cover;
   border-radius:18px;
   border:1px solid var(--line);
+  background:var(--paper);
 }
 
 section{
-  padding:60px 0;
+  padding:34px 0;
 }
 
 h2{
-  font-size:26px;
-  margin-bottom:10px;
+  font-size:24px;
+  margin:0 0 10px;
+  letter-spacing:-0.2px;
 }
 
 .section-intro{
   color:var(--muted);
-  max-width:750px;
-  margin-bottom:30px;
+  max-width:820px;
+  margin:0 0 16px;
+  font-size:15px;
 }
 
 .grid{
   display:grid;
-  gap:20px;
+  gap:14px;
 }
 
 @media(min-width:900px){
@@ -100,34 +112,64 @@ h2{
 }
 
 .card{
-  background:white;
+  background:var(--paper);
   border:1px solid var(--line);
   border-radius:16px;
-  padding:22px;
+  padding:18px;
 }
 
 .card h3{
-  margin-top:0;
-  font-size:18px;
+  margin:0 0 8px;
+  font-size:17px;
+  letter-spacing:-0.1px;
 }
 
 .card p{
   color:var(--muted);
-  margin-bottom:0;
+  margin:0;
+  font-size:14px;
+}
+
+.pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+
+.pill{
+  font-size:12px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:#faf9f5;
+  color:var(--muted);
+}
+
+.process{
+  background:#ece9df;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
 }
 
 .pricing-box{
-  background:white;
+  background:var(--paper);
   border:1px solid var(--line);
   border-radius:16px;
-  padding:25px;
-  max-width:600px;
+  padding:18px;
+  max-width:680px;
+}
+
+.small{
+  font-size:12px;
+  color:var(--muted);
+  margin-top:10px;
 }
 
 footer{
   border-top:1px solid var(--line);
-  padding:40px 0;
-  font-size:14px;
+  padding:28px 0;
+  font-size:13px;
   color:var(--muted);
   text-align:center;
 }
@@ -139,16 +181,13 @@ footer{
 <header>
   <div class="wrap">
     <h1>Hacking the Syllabus</h1>
-    <p>Strategic Facilitation for Vision, Culture, and Alignment by Ikee Gibson</p>
+    <div class="sub">Strategic facilitation for vision, culture, and alignment by Ikee Gibson</div>
 
-    <p>
-      I help emerging and established organizations grow by facilitating hands-on strategy workshops
-      that surface hidden assumptions, strengthen alignment, and make difficult conversations constructive.
-    </p>
+    <div class="lead">
+      I help emerging and established organizations grow by facilitating hands on strategy workshops that surface hidden assumptions, strengthen alignment, and make difficult conversations constructive.
+    </div>
 
-    <a class="button" href="mailto:hackingthesyllabus@gmail.com?subject=Workshop%20Inquiry">
-      Request a Consultation
-    </a>
+    <a class="button" href="mailto:hackingthesyllabus@gmail.com?subject=Workshop%20Inquiry">Request a consultation</a>
   </div>
 </header>
 
@@ -158,67 +197,157 @@ footer{
   </div>
 </section>
 
-<section>
+<section id="services">
   <div class="wrap">
-    <h2>Services</h2>
+    <h2>What I offer</h2>
     <p class="section-intro">
-      Structured, research-informed workshops designed to be engaging and serious at the same time.
-      Sessions are adaptable in tone, from strategic planning to team cohesion and equity dialogue.
+      These workshops are designed to be disarming without being superficial. They create a structured way for people to think together, name what is happening, and leave with clarity that can actually be implemented.
     </p>
 
     <div class="grid">
       <div class="card">
-        <h3>Strategic Vision and Future Alignment</h3>
-        <p>Clarify direction, surface tradeoffs, and align leadership around priorities and execution.</p>
+        <h3>Strategic vision and future alignment</h3>
+        <p>
+          We build a shared picture of where the organization is going, what tradeoffs matter, and what decisions need to be made next so execution is clearer and more coordinated.
+        </p>
+        <div class="pills">
+          <span class="pill">future thinking</span>
+          <span class="pill">priorities</span>
+          <span class="pill">decision clarity</span>
+        </div>
       </div>
 
       <div class="card">
-        <h3>Leadership and Cross-Level Alignment</h3>
-        <p>Integrate perspectives across hierarchy to reduce silos and strengthen organizational coordination.</p>
+        <h3>Leadership and cross level alignment</h3>
+        <p>
+          We bring different levels of the organization into the same conversation so silos shrink, expectations align, and teams can coordinate around a shared understanding of how the system actually works.
+        </p>
+        <div class="pills">
+          <span class="pill">stakeholder integration</span>
+          <span class="pill">systems view</span>
+          <span class="pill">shared language</span>
+        </div>
       </div>
 
       <div class="card">
-        <h3>Culture, Trust, and Team Cohesion</h3>
-        <p>Strengthen norms, accountability, and psychological safety to improve collaboration.</p>
+        <h3>Culture and team cohesion</h3>
+        <p>
+          These workshops help organizations strengthen connections across teams and roles by making norms visible, building trust through structured dialogue, and creating practical agreements about how people will work together.
+        </p>
+        <div class="pills">
+          <span class="pill">trust</span>
+          <span class="pill">norms</span>
+          <span class="pill">cohesion</span>
+        </div>
       </div>
 
       <div class="card">
-        <h3>Equity and Inclusion Dialogue</h3>
-        <p>Facilitate constructive conversations that deepen perspective integration and strengthen organizational durability.</p>
+        <h3>Equity, diversity, and inclusion dialogue</h3>
+        <p>
+          We create a guided space for people to understand different perspectives and how those perspectives shape teamwork, client relationships, and organizational durability, including when tension or uncertainty is present.
+        </p>
+        <div class="pills">
+          <span class="pill">perspective integration</span>
+          <span class="pill">durability</span>
+          <span class="pill">workplace climate</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<section id="method">
   <div class="wrap">
-    <h2>Formats</h2>
+    <h2>Serious play inspired method</h2>
     <p class="section-intro">
-      Two-hour workshops, half-day intensives, full-day sessions, and multi-day engagements for groups of four to twenty.
-      Ideal group size is eight to twelve.
+      I use a serious play inspired approach that often includes LEGO and other simple games. The point is not play for its own sake. The point is to lower defenses so groups can surface what is normally hard to say, explore possibilities more freely, and move toward change, vision, or healing in a way that feels safe and grounded.
     </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Why it works</h3>
+        <p>
+          Building and sharing makes assumptions visible. It also creates a shared object to talk about. That shift helps people move from blame and debate toward clarity, curiosity, and action.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Important note</h3>
+        <p>
+          This work draws inspiration from serious play style facilitation. It does not claim LEGO Serious Play certification.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section>
+<section class="process" id="formats">
+  <div class="wrap">
+    <h2>Formats</h2>
+    <p class="section-intro">
+      Sessions can be two hours, three hours, half day, full day, or a three day engagement that brings in different stakeholder groups. Group sizes can be four to twenty. The ideal size is eight to twelve.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Workflow</h3>
+        <p>
+          We start with a short discovery conversation. I then design the session structure and any light prework. We run the workshop. You leave with clear themes and next steps that people can carry forward.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Documentation options</h3>
+        <p>
+          Documentation can include a summary of themes, a management ready synthesis, and optional photo or video based documentation for the right use cases. Scope depends on your needs and the session format.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
   <div class="wrap">
     <h2>Pricing</h2>
+    <p class="section-intro">
+      Pricing depends on duration, preparation, how many stakeholder groups are involved, and what documentation you want coming out of the session.
+    </p>
+
     <div class="pricing-box">
-      <p>
-        Engagements typically range from <strong>1,500 to 15,000 CAD</strong> depending on duration,
-        preparation, stakeholder groups, and documentation needs.
+      <p style="margin:0;color:var(--muted);font-size:14px;">
+        Engagements typically range from <strong>1,500 to 15,000 CAD</strong> depending on scope.
+      </p>
+      <div class="small">
+        If you email me a quick description of the goal, group size, and timeline, I will suggest a format and a clear quote.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <div class="card">
+      <p style="margin:0;color:var(--muted);font-size:14px;max-width:92ch;">
+        Ikee Gibson is a PhD candidate whose work is grounded in organizational change and in how organizations reinterpret demographic change. This approach draws on theoretical and empirical research in organizational development, organizational culture, work stratification and markets, and equity, diversity, and inclusion, with attention to causal complexity and endogeneity. The goal is to help organizations think together with clarity and momentum.
       </p>
     </div>
   </div>
 </section>
 
-<section>
+<section id="contact">
   <div class="wrap">
-    <h2>About</h2>
+    <h2>Contact</h2>
     <p class="section-intro">
-      Ikee Gibson is a PhD candidate whose facilitation approach is grounded in empirical research and practical experience.
-      The goal is to help organizations think together with clarity and momentum.
+      Email me with what you are trying to solve, who needs to be in the room, and the timeline you are working with.
     </p>
+
+    <div class="card">
+      <p style="margin:0 0 12px;color:var(--muted);font-size:14px;">
+        <a href="mailto:hackingthesyllabus@gmail.com?subject=Workshop%20Inquiry">hackingthesyllabus@gmail.com</a>
+      </p>
+      <a class="button" href="mailto:hackingthesyllabus@gmail.com?subject=Workshop%20Inquiry">Request a consultation</a>
+    </div>
   </div>
 </section>
 
