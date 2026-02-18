@@ -1,155 +1,487 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>[Your Name or Studio] | Strategy and Culture Workshops</title>
-  <meta name="description" content="Facilitated LEGO based strategy workshops for alignment, visioning, culture, and difficult conversations." />
+  <meta charset="utf-8">
+  <title>Hacking the Syllabus | Strategic Facilitation by Ikee Gibson</title>
+  <meta name="description" content="Strategic facilitation workshops for vision, culture, alignment, and constructive conversations. Toronto, Ontario.">
   <style>
-    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.4; }
-    body { margin: 0; color: #111; background: #fff; }
-    header { padding: 56px 20px; max-width: 980px; margin: 0 auto; }
-    main { padding: 0 20px 60px; max-width: 980px; margin: 0 auto; }
-    .pill { display: inline-block; padding: 6px 10px; border: 1px solid #ddd; border-radius: 999px; margin: 0 8px 8px 0; font-size: 14px; }
-    .card { border: 1px solid #e6e6e6; border-radius: 16px; padding: 18px; margin: 14px 0; }
-    .grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
-    @media (min-width: 860px) { .grid { grid-template-columns: 1fr 1fr; } }
-    h1 { font-size: 42px; margin: 0 0 10px; letter-spacing: -0.5px; }
-    h2 { font-size: 22px; margin: 26px 0 10px; }
-    p { font-size: 16px; margin: 10px 0; color: #222; }
-    .lead { font-size: 18px; color: #222; max-width: 72ch; }
-    .cta { display: inline-block; padding: 12px 16px; border-radius: 12px; border: 1px solid #111; text-decoration: none; color: #111; font-weight: 600; }
-    .cta.secondary { border-color: #ddd; font-weight: 600; }
-    .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-top: 18px; }
-    footer { border-top: 1px solid #eee; padding: 26px 20px; max-width: 980px; margin: 0 auto; color: #444; font-size: 14px; }
-    ul { margin: 10px 0 0 18px; }
-    li { margin: 6px 0; }
-    .small { font-size: 14px; color: #444; }
+    :root{
+      --bg:#fbfaf6;
+      --ink:#111111;
+      --muted:#3a3a3a;
+      --paper:#ffffff;
+      --line:#e7e3da;
+      --sage:#3b4438;
+      --sage2:#2f372c;
+      --accent:#c9b27c;
+      --radius:18px;
+      --shadow:0 14px 40px rgba(0,0,0,0.08);
+      --max:1040px;
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.45}
+    a{color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+    .topbar{
+      background:var(--sage);
+      color:#f6f2e7;
+      position:sticky;
+      top:0;
+      z-index:10;
+      border-bottom:1px solid rgba(255,255,255,0.10);
+    }
+    .topinner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+      gap:18px;
+    }
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+      letter-spacing:0.2px;
+    }
+    .brand .name{font-size:14px;text-transform:uppercase;opacity:0.95}
+    .brand .sub{font-size:12px;opacity:0.85}
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .nav a{
+      text-decoration:none;
+      font-size:13px;
+      opacity:0.9;
+      padding:8px 10px;
+      border-radius:999px;
+    }
+    .nav a:hover{background:rgba(255,255,255,0.10)}
+    .cta{
+      text-decoration:none;
+      background:#f6f2e7;
+      color:var(--sage2);
+      padding:10px 14px;
+      border-radius:12px;
+      font-weight:650;
+      font-size:13px;
+      border:1px solid rgba(0,0,0,0.06);
+    }
+    .cta:hover{transform:translateY(-1px)}
+    .hero{
+      background:linear-gradient(180deg, var(--sage) 0%, var(--sage) 64%, var(--bg) 64%, var(--bg) 100%);
+      padding:48px 0 22px;
+    }
+    .heroInner{display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px}
+    .kicker{
+      color:#f6f2e7;
+      opacity:0.92;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:1.4px;
+      margin-top:6px;
+    }
+    h1{
+      color:#f6f2e7;
+      margin:0;
+      font-size:44px;
+      letter-spacing:-0.6px;
+      max-width:22ch;
+      font-weight:700;
+    }
+    .lead{
+      color:#f6f2e7;
+      opacity:0.92;
+      max-width:72ch;
+      font-size:16px;
+      margin:0;
+    }
+    .heroActions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:6px}
+    .buttonA{
+      background:#f6f2e7;
+      color:var(--sage2);
+      padding:12px 16px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:700;
+      border:1px solid rgba(0,0,0,0.06);
+    }
+    .buttonB{
+      background:transparent;
+      color:#f6f2e7;
+      padding:12px 16px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:650;
+      border:1px solid rgba(255,255,255,0.35);
+    }
+    .heroCard{
+      width:100%;
+      margin-top:18px;
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      max-width:980px;
+    }
+    .heroImg{
+      width:100%;
+      height:460px;
+      object-fit:cover;
+      display:block;
+    }
+    .heroNote{
+      padding:14px 18px;
+      font-size:13px;
+      color:var(--muted);
+      background:linear-gradient(180deg, #ffffff 0%, #fbfaf6 100%);
+    }
+    section{padding:38px 0}
+    .sectionTitle{
+      font-size:22px;
+      margin:0 0 10px;
+      letter-spacing:-0.2px;
+    }
+    .sectionLead{
+      margin:0 0 18px;
+      color:var(--muted);
+      max-width:84ch;
+      font-size:15px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+    @media (min-width:900px){
+      .grid{grid-template-columns:1fr 1fr}
+    }
+    .card{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px 18px;
+      box-shadow:0 10px 26px rgba(0,0,0,0.06);
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size:16px;
+      letter-spacing:-0.1px;
+    }
+    .card p{margin:0;color:var(--muted);font-size:14px;max-width:80ch}
+    .list{
+      margin:10px 0 0;
+      padding:0 0 0 18px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .list li{margin:6px 0}
+    .pillRow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .pill{
+      display:inline-block;
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fffdf7;
+      color:var(--muted);
+    }
+    .process{
+      background:rgba(59,68,56,0.06);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+    .steps{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+    }
+    @media (min-width:900px){
+      .steps{grid-template-columns:1fr 1fr 1fr}
+    }
+    .step{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:16px;
+    }
+    .step .n{
+      display:inline-block;
+      font-weight:800;
+      color:var(--sage2);
+      background:rgba(201,178,124,0.22);
+      border:1px solid rgba(201,178,124,0.55);
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:12px;
+      margin-bottom:8px;
+    }
+    .step h4{margin:0 0 6px;font-size:15px}
+    .step p{margin:0;color:var(--muted);font-size:14px}
+    .pricingGrid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+    @media (min-width:900px){
+      .pricingGrid{grid-template-columns:1fr 1fr}
+    }
+    .priceBlock{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:0 10px 26px rgba(0,0,0,0.06);
+    }
+    .priceBlock h3{margin:0 0 8px;font-size:16px}
+    .priceBlock p{margin:0;color:var(--muted);font-size:14px}
+    .priceBlock .big{
+      margin-top:10px;
+      font-size:22px;
+      font-weight:800;
+      letter-spacing:-0.4px;
+    }
+    .footer{
+      padding:28px 0;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .fine{
+      font-size:12px;
+      color:var(--muted);
+      opacity:0.9;
+      max-width:92ch;
+      margin-top:10px;
+    }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="pill">Strategic visioning</div>
-    <div class="pill">Culture and trust</div>
-    <div class="pill">Difficult conversations</div>
-    <div class="pill">Research informed reporting</div>
-
-    <h1>Build shared clarity through hands on strategy workshops</h1>
-    <p class="lead">
-      I facilitate LEGO based workshops that help teams surface what is really happening, align on a direction,
-      and leave with language and action that people can actually use.
-    </p>
-
-    <div class="row">
-      <a class="cta" href="mailto:[your-email]?subject=Workshop%20inquiry">Request a consult</a>
-      <a class="cta secondary" href="#services">See services</a>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="topinner">
+        <div class="brand">
+          <div class="name">Hacking the Syllabus</div>
+          <div class="sub">Strategic Facilitation for Vision, Culture, and Alignment by Ikee Gibson</div>
+        </div>
+        <div class="nav">
+          <a href="#services">Services</a>
+          <a href="#process">Process</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#about">About</a>
+          <a class="cta" href="mailto:hackingthesyllabus@gmail.com?subject=Workshop%20inquiry">Work with me</a>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <p class="small">
-      Note. These sessions use a LEGO based facilitation approach inspired by Serious Play style methods.
-      I do not claim LEGO Serious Play certification.
-    </p>
-  </header>
+  <div class="hero">
+    <div class="wrap">
+      <div class="heroInner">
+        <div class="kicker">Toronto, Ontario</div>
+        <h1>Hands on workshops that turn hard conversations into shared clarity</h1>
+        <p class="lead">
+          I help emerging and established organizations grow by facilitating hands on strategy workshops that surface hidden assumptions,
+          strengthen alignment, and make difficult conversations constructive.
+        </p>
+        <div class="heroActions">
+          <a class="buttonA" href="mailto:hackingthesyllabus@gmail.com?subject=Workshop%20inquiry">Request a consult</a>
+          <a class="buttonB" href="#services">Explore services</a>
+        </div>
 
-  <main>
-    <section id="services">
-      <h2>What I help with</h2>
+        <div class="heroCard">
+          <img class="heroImg" src="https://images.squarespace-cdn.com/content/5134cbefe4b0c6fb04df8065/21eb72db-e5f5-428b-b0b3-7c0feaba6021/04.17_BlogInline_CreateWebsite-Journalist_Myhra.png?format=1000w&content-type=image%2Fpng" alt="Warm, minimal layout inspiration image">
+          <div class="heroNote">
+            This hero image is a placeholder for layout. Replace it with a photo from your sessions, a table of builds, or a clean branded image.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <h2 class="sectionTitle">Services</h2>
+      <p class="sectionLead">
+        These are practical, guided conversations with structure. They are designed to be disarming and serious at the same time.
+        You can choose a lighter team building tone or a more executive tone. The goal is always clarity you can act on.
+      </p>
+
       <div class="grid">
         <div class="card">
-          <h3>Strategic visioning and alignment</h3>
-          <p>Get people out of slide mode and into sensemaking. Build shared understanding of priorities, tradeoffs, and next steps.</p>
-          <ul>
-            <li>Vision and direction setting</li>
-            <li>Operating model clarity</li>
-            <li>Cross team alignment</li>
+          <h3>Strategic vision and future alignment</h3>
+          <p>Clarify direction, surface tradeoffs, and align on priorities so teams can execute with fewer surprises.</p>
+          <ul class="list">
+            <li>Strategic planning and future thinking</li>
+            <li>Shared priorities and decision rules</li>
+            <li>Risks, constraints, and next steps</li>
           </ul>
+          <div class="pillRow">
+            <span class="pill">Vision</span>
+            <span class="pill">Alignment</span>
+            <span class="pill">Execution clarity</span>
+          </div>
         </div>
 
         <div class="card">
-          <h3>Culture, trust, and tough conversations</h3>
-          <p>Create a disarming structure to talk about what is usually left unsaid. Useful after growth, reorgs, or demographic change.</p>
-          <ul>
-            <li>Psychological safety and norms</li>
-            <li>Conflict and misalignment</li>
-            <li>Equity diversity and inclusion sensemaking</li>
+          <h3>Leadership and cross level alignment</h3>
+          <p>Bring different levels of the organization into one system view. Reduce silos and improve coordination across roles.</p>
+          <ul class="list">
+            <li>Stakeholder integration across hierarchy</li>
+            <li>Shared understanding of friction points</li>
+            <li>Commitments across teams</li>
           </ul>
+          <div class="pillRow">
+            <span class="pill">Systems view</span>
+            <span class="pill">Shared language</span>
+            <span class="pill">Better handoffs</span>
+          </div>
         </div>
 
         <div class="card">
-          <h3>Stakeholder integration</h3>
-          <p>Bring different levels of the organization into the same room to map the system and reduce silo thinking.</p>
-          <ul>
-            <li>Leadership and frontline integration</li>
-            <li>Shared system map</li>
-            <li>Commitments across roles</li>
+          <h3>Culture, trust, and team cohesion</h3>
+          <p>Strengthen norms, accountability, and psychological safety. Make collaboration easier and more honest.</p>
+          <ul class="list">
+            <li>Team building with meaning</li>
+            <li>Conflict patterns and repair practices</li>
+            <li>Ways of working that people can name</li>
           </ul>
+          <div class="pillRow">
+            <span class="pill">Trust</span>
+            <span class="pill">Cohesion</span>
+            <span class="pill">Culture</span>
+          </div>
         </div>
 
         <div class="card">
-          <h3>Research quality outputs</h3>
-          <p>Capture the insights with clear documentation that leadership, HR, and teams can act on.</p>
-          <ul>
-            <li>Workshop summary and themes</li>
-            <li>Recommendations and risks</li>
-            <li>Optional full report</li>
+          <h3>Equity and inclusion dialogue and perspective integration</h3>
+          <p>
+            Create a guided space for people to understand different perspectives and what they mean for teamwork, clients, and durability.
+            Useful for everyday capacity building and also for moments when tension is present.
+          </p>
+          <ul class="list">
+            <li>Constructive dialogue with clear boundaries</li>
+            <li>Shared understanding of impact inside teams</li>
+            <li>Practical norms for inclusive collaboration</li>
           </ul>
+          <div class="pillRow">
+            <span class="pill">Perspective integration</span>
+            <span class="pill">Durability</span>
+            <span class="pill">Client trust</span>
+          </div>
         </div>
       </div>
-    </section>
 
-    <section id="how">
-      <h2>How it works</h2>
-      <div class="card">
-        <ol>
-          <li>Short discovery call to define the outcome and participants</li>
-          <li>Light prework to clarify context and constraints</li>
-          <li>Facilitated build and share activities that surface assumptions</li>
-          <li>Synthesis and decision making</li>
-          <li>Written output and next steps</li>
-        </ol>
+      <p class="fine">
+        Note on method. Workshops use a LEGO based facilitation approach inspired by serious play style methods. This is not a claim of LEGO Serious Play certification.
+      </p>
+    </div>
+  </section>
+
+  <section id="process" class="process">
+    <div class="wrap">
+      <h2 class="sectionTitle">Process</h2>
+      <p class="sectionLead">
+        Simple structure. Strong preparation. Clear outcomes. You get a session that feels engaging, and a result that leadership can use.
+      </p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="n">Step 1</div>
+          <h4>Discovery and outcome</h4>
+          <p>We clarify the outcome, participants, constraints, and what success looks like.</p>
+        </div>
+        <div class="step">
+          <div class="n">Step 2</div>
+          <h4>Design and prework</h4>
+          <p>I design the session flow and light prework so the room starts with the right context.</p>
+        </div>
+        <div class="step">
+          <div class="n">Step 3</div>
+          <h4>Facilitation and synthesis</h4>
+          <p>We run the workshop. You leave with themes, decisions, and next steps that are easy to carry forward.</p>
+        </div>
       </div>
-    </section>
 
-    <section id="pricing">
-      <h2>Pricing</h2>
-      <div class="card">
-        <p>Pricing depends on group size, prep, and reporting needs. Typical starting points:</p>
-        <ul>
-          <li>Two hour session. Starting at [X]</li>
-          <li>Half day workshop. Starting at [X]</li>
-          <li>Full day workshop. Starting at [X]</li>
-          <li>Optional report add on. Starting at [X]</li>
-        </ul>
-        <p class="small">If you want a fixed package price, I can quote after a short call.</p>
-      </div>
-    </section>
-
-    <section id="about">
-      <h2>About</h2>
-      <div class="card">
+      <div class="card" style="margin-top:14px">
+        <h3>Formats</h3>
         <p>
-          I bring a facilitation practice grounded in research skills and real world work across the public sector and entrepreneurship.
-          My goal is to help teams think together with clarity, care, and momentum.
+          Two hour workshop. Three hour workshop. Half day. Full day. Three day engagement with multiple stakeholder groups.
+          Group sizes can be four to five up to twenty. Ideal size is eight to twelve.
         </p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <div class="card">
-        <p>Tell me what you are trying to solve, who needs to be in the room, and what a good outcome looks like.</p>
-        <div class="row">
-          <a class="cta" href="mailto:[your-email]?subject=Workshop%20inquiry">Email me</a>
-          <span class="small">Or send a calendar link if you already use one.</span>
+  <section id="pricing">
+    <div class="wrap">
+      <h2 class="sectionTitle">Pricing</h2>
+      <p class="sectionLead">
+        Pricing depends on duration, preparation, and how many stakeholder groups are involved. Documentation options are available when useful.
+      </p>
+
+      <div class="pricingGrid">
+        <div class="priceBlock">
+          <h3>Typical range</h3>
+          <p>Most engagements fall within this band for Toronto based teams.</p>
+          <div class="big">1,500 to 15,000 CAD</div>
+          <p class="fine">Range varies by scope, number of sessions, and whether you want formal documentation.</p>
+        </div>
+
+        <div class="priceBlock">
+          <h3>What you get</h3>
+          <p>
+            A designed session, clear facilitation, and a practical synthesis. If you want a written report, a thematic summary,
+            or photo and video style documentation, we scope that based on your needs.
+          </p>
+          <div class="pillRow" style="margin-top:12px">
+            <span class="pill">Workshop design</span>
+            <span class="pill">Facilitation</span>
+            <span class="pill">Synthesis</span>
+            <span class="pill">Optional documentation</span>
+          </div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer>
-    © <span id="year"></span> [Your Name or Studio]. All rights reserved.
-  </footer>
+  <section id="about">
+    <div class="wrap">
+      <h2 class="sectionTitle">About</h2>
+      <div class="card">
+        <p style="margin:0;color:var(--muted);font-size:14px;max-width:90ch">
+          Ikee Gibson is a PhD candidate whose facilitation approach is grounded in empirical research and practical experience.
+          The goal is to help organizations think together with clarity, care, and momentum.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2 class="sectionTitle">Contact</h2>
+      <p class="sectionLead">
+        Email me with what you are trying to solve, who needs to be in the room, and the timeline you are working with.
+      </p>
+      <div class="card">
+        <p style="margin:0 0 12px;color:var(--muted);font-size:14px">
+          Email
+          <a href="mailto:hackingthesyllabus@gmail.com?subject=Workshop%20inquiry">hackingthesyllabus@gmail.com</a>
+        </p>
+        <a class="buttonA" href="mailto:hackingthesyllabus@gmail.com?subject=Workshop%20inquiry">Request a consult</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="wrap">
+      <div>© <span id="year"></span> Hacking the Syllabus. Strategic Facilitation by Ikee Gibson.</div>
+    </div>
+  </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
