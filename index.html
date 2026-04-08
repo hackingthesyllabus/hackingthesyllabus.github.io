@@ -391,7 +391,7 @@ footer {
       <div class="full card contact-card">
         <h3>Tell us what you are trying to solve, who should be involved, and your timeline</h3>
         <p class="contact-email">Email: <a href="mailto:ikee@hackingthesyllabus.ca">ikee@hackingthesyllabus.ca</a></p>
-        <form id="contact-form">
+        <form id="contact-form" action="https://formspree.io/f/xojpbgyj" method="POST">
           <div class="form-grid">
             <div>
               <label for="fname">First name</label>
@@ -501,31 +501,29 @@ const contactForm = document.getElementById("contact-form");
 const formSuccess = document.getElementById("form-success");
 const formError = document.getElementById("form-error");
 
-contactForm.addEventListener("submit", (e) => {
+contactForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   formSuccess.style.display = "none";
   formError.style.display = "none";
 
-  const fd = new FormData(contactForm);
-  const firstName = fd.get("First name") || "";
-  const lastName = fd.get("Last name") || "";
-  const email = fd.get("Email") || "";
-  const org = fd.get("Organization") || "";
-  const focus = fd.get("Workshop focus") || "";
-  const otherFocus = fd.get("Other workshop focus") || "";
-  const details = fd.get("Project details") || "";
+  try {
+    const response = await fetch(contactForm.action, {
+      method: "POST",
+      body: new FormData(contactForm),
+      headers: { "Accept": "application/json" }
+    });
 
-  const subject = encodeURIComponent("Workshop Inquiry from " + firstName + " " + lastName);
-  const body = encodeURIComponent(
-    "Name: " + firstName + " " + lastName + "\n" +
-    "Email: " + email + "\n" +
-    "Organization: " + org + "\n" +
-    "Workshop Focus: " + focus + (otherFocus ? " — " + otherFocus : "") + "\n\n" +
-    "Project Details:\n" + details
-  );
-
-  window.location.href = "mailto:ikee@hackingthesyllabus.ca?subject=" + subject + "&body=" + body;
-  formSuccess.style.display = "block";
+    if (response.ok) {
+      contactForm.reset();
+      otherFocusWrap.classList.add("hidden");
+      otherFocusInput.required = false;
+      formSuccess.style.display = "block";
+    } else {
+      formError.style.display = "block";
+    }
+  } catch (error) {
+    formError.style.display = "block";
+  }
 });
 </script>
 </body>
