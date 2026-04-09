@@ -139,7 +139,8 @@ h2 {
 
 .section-intro { color: var(--muted); font-size: 15px; line-height: 1.7; background: #f0efeb; box-shadow: 0 4px 18px rgba(0,0,0,0.09), 0 1px 4px rgba(0,0,0,0.06); }
 .card h3 { margin: 0 0 10px; font-size: 17px; color: var(--deep); }
-.card p { color: var(--muted); margin: 0; font-size: 14.5px; line-height: 1.7; }
+.card p { color: var(--muted); margin: 0 0 10px; font-size: 14.5px; line-height: 1.7; }
+.card p:last-child { margin-bottom: 0; }
 .callout { font-size: 15px; color: var(--ink); line-height: 1.7; }
 .callout strong { color: var(--deep); }
 .pricing-box p { color: var(--muted); font-size: 14.5px; margin: 0 0 12px; }
@@ -305,18 +306,53 @@ footer {
 
 <section id="services">
   <div class="wrap">
-    <h2>What we Offer</h2>
+    <h2>What We Offer</h2>
     <div class="row reveal">
       <div class="full section-intro">These workshops create a structured way for people to think together, name what is happening, and leave with clarity that can actually be implemented. Flexible across executive settings, team environments, and student development contexts, they meet people where they are and move them toward clear, actionable outcomes.</div>
     </div>
+
+    <!-- Student Workshop -->
     <div class="row reveal">
-      <div class="card"><h3>Leadership and cross-level alignment</h3><p>These sessions bring executives, managers, and frontline staff into one structured conversation so expectations align and silos weaken. Participants build a shared working model of how the organization operates, where friction lives, and what must change for coordination to improve.</p></div>
-      <div class="card"><h3>Culture and team cohesion</h3><p>These sessions strengthen trust and accountability by surfacing what is usually left unsaid, clarifying expectations, and helping teams agree on how they will work together under pressure. The goal is durable cohesion that supports performance.</p></div>
+      <div class="full card">
+        <h3>Student Workshop: Problem Solving, Voice, and Decision Making Through Play</h3>
+        <p>This workshop shifts how students experience problem solving by focusing on how they think rather than on arriving at a single correct answer. Through hands on model building and structured scenarios, students practice interpreting information, explaining their reasoning, and adapting their approach in real time. Activities are designed to make thinking visible and to encourage flexibility, experimentation, and confidence.</p>
+        <p>Because the work is grounded in play, students engage more openly and take risks they might otherwise avoid. This format is especially effective during periods that require sustained problem solving, such as exam preparation or academic transitions, and helps students build stronger connections to their own learning.</p>
+      </div>
     </div>
+
+    <!-- Staff and Administrator Workshop -->
     <div class="row reveal">
-      <div class="card"><h3>Strategic vision and direction setting</h3><p>These sessions help leadership clarify priorities, make tradeoffs explicit, and leave with a shared direction and clear next steps. Participants build a concrete picture of what success requires and what must stop, start, or shift.</p></div>
-      <div class="card"><h3>Equity, diversity, and inclusion dialogue</h3><p>These sessions create a structured way to discuss equity and difference without escalation. Teams build shared understanding of how identity, perspective, and power shape collaboration and client relationships, while protecting organizational stability and long term durability.</p></div>
+      <div class="full card">
+        <h3>Staff and Administrator Workshop: Strategic Reflection and Alignment Through Serious Play</h3>
+        <p>This workshop creates a structured space for educators and administrators to surface insights that are often left unspoken. Using guided model building and reflection, participants explore complex topics such as student engagement, burnout, and institutional change through metaphor, allowing difficult conversations to take place in a way that feels constructive rather than confrontational.</p>
+        <p>The process moves from individual reflection to collective alignment, helping teams connect their experiences to shared challenges and coordinated action. Whether delivered as a single session or across multiple meetings, the outcome is stronger alignment among staff and clearer direction for improving school environments.</p>
+      </div>
     </div>
+
+    <!-- Strategic Vision + EDI -->
+    <div class="row reveal">
+      <div class="card">
+        <h3>Strategic Vision and Direction Setting</h3>
+        <p>When priorities compete and direction becomes diffuse, these sessions help leadership make tradeoffs visible and decisions explicit. Participants work toward a shared understanding of what success requires, identifying what must stop, what must begin, and what must change in order to move forward with clarity.</p>
+      </div>
+      <div class="card">
+        <h3>Equity, Diversity, and Inclusion Dialogue</h3>
+        <p>Sensitive conversations around equity and difference are approached through structured, facilitated engagement that reduces escalation while maintaining honesty. These sessions help teams examine how identity, perspective, and power shape collaboration and service delivery, while supporting stability and long term organizational durability.</p>
+      </div>
+    </div>
+
+    <!-- Leadership + Culture -->
+    <div class="row reveal">
+      <div class="card">
+        <h3>Leadership and Cross-Level Alignment</h3>
+        <p>Rather than keeping conversations siloed, these sessions bring executives, managers, and frontline staff into a single structured space where assumptions can be surfaced and aligned. Participants develop a shared working model of how the organization actually functions, where coordination breaks down, and what needs to shift to improve alignment across levels.</p>
+      </div>
+      <div class="card">
+        <h3>Culture and Team Cohesion</h3>
+        <p>By creating conditions where unspoken dynamics can be expressed constructively, these sessions strengthen trust, clarify expectations, and reinforce accountability. Teams leave with a clearer understanding of how they will operate together under pressure, supporting cohesion that is not temporary, but embedded in day to day practice.</p>
+      </div>
+    </div>
+
     <div class="row reveal">
       <div class="full callout"><strong>This is not generic corporate training.</strong> It is facilitated sensemaking that disarms defensiveness and makes it easier for people to speak honestly about what matters. The room can feel lighter, and the work leads to decisions that actually move things forward.</div>
     </div>
@@ -330,8 +366,8 @@ footer {
       <div class="full section-intro">For over eight years, I have designed and facilitated serious play style workshops across boardroom settings, team environments, education spaces, and youth focused programs. Sessions often include LEGO and other simple hands-on tools. The purpose is to lower defenses so groups can surface what is usually hard to say, explore options faster, and move toward shared clarity.</div>
     </div>
     <div class="row reveal">
-      <div class="card"><h3>Research grounded documentation</h3><p>I combine facilitation with research based techniques for data gathering, coding, and synthesis. Organizations can receive tailored deliverables such as thematic summaries, decision logs, and management ready reports. Reporting can draw on qualitative and quantitative approaches depending on the goal and the engagement format.</p></div>
-      <div class="card"><h3>Important note</h3><p>This work draws inspiration from serious play style facilitation. It does not claim LEGO Serious Play certification.</p></div>
+      <div class="card"><h3>Research Grounded Documentation</h3><p>I combine facilitation with research based techniques for data gathering, coding, and synthesis. Organizations can receive tailored deliverables such as thematic summaries, decision logs, and management ready reports. Reporting can draw on qualitative and quantitative approaches depending on the goal and the engagement format.</p></div>
+      <div class="card"><h3>Important Note</h3><p>This work draws inspiration from serious play style facilitation. It does not claim LEGO Serious Play certification.</p></div>
     </div>
   </div>
 </section>
@@ -343,8 +379,8 @@ footer {
       <div class="full section-intro">Sessions can be two hours, three hours, half day, full day, or a three day engagement that brings in different stakeholder groups. Group sizes can be four to twenty. The ideal size is eight to twelve.</div>
     </div>
     <div class="row reveal">
-      <div class="card"><h3>How it works</h3><p>We start with a short discovery conversation to clarify outcomes and participants. I then design the session structure and any light prework. We run the workshop and close with clear themes, decisions, and next steps.</p></div>
-      <div class="card"><h3>Documentation options</h3><p>Documentation can include a synthesis memo, leadership ready recommendations, or visual documentation when useful. Scope depends on your goals, session length, and how many stakeholder groups are involved.</p></div>
+      <div class="card"><h3>How It Works</h3><p>We start with a short discovery conversation to clarify outcomes and participants. I then design the session structure and any light prework. We run the workshop and close with clear themes, decisions, and next steps.</p></div>
+      <div class="card"><h3>Documentation Options</h3><p>Documentation can include a synthesis memo, leadership ready recommendations, or visual documentation when useful. Scope depends on your goals, session length, and how many stakeholder groups are involved.</p></div>
     </div>
   </div>
 </section>
@@ -373,7 +409,7 @@ footer {
           </div>
           <div class="about-card">
             <p class="about-name">Ikee Gibson</p>
-            <p class="about-role">Facilitator &amp; PhD Candidate &middot; Toronto, Ontario</p>
+            <p class="about-role">Facilitator &middot; Toronto, Ontario</p>
             <p>Ikee Gibson is a PhD candidate whose work examines how organizations interpret and respond to change, particularly in the context of shifting populations and evolving institutional demands.</p>
             <p>His research draws on organizational theory, culture, and stratification to understand how people make sense of complexity and how those interpretations shape everyday practice.</p>
             <p>Alongside this work, Ikee has a longstanding interest in problem solving, especially in team environments where progress depends on how people think together. His facilitation builds from that interest. Using structured, hands-on methods grounded in play, he creates space for groups to surface insight, rethink assumptions, and move toward shared clarity. In this context, play is not a break from the work. It is a way of doing the work differently, reducing monotony, inviting participation, and often unlocking forms of thinking that more conventional approaches miss.</p>
@@ -413,14 +449,12 @@ footer {
               <label for="interest">Workshop focus</label>
               <select id="interest" name="Workshop focus" required>
                 <option value="">Select a focus area&hellip;</option>
-                <option>Professional development</option>
-                <option>Student problem solving and engagement</option>
-                <option>Difficult conversations</option>
-                <option>Team building</option>
-                <option>Leadership and cross-level alignment</option>
-                <option>Culture and team cohesion</option>
-                <option>Strategic vision and direction setting</option>
-                <option>Equity, diversity, and inclusion dialogue</option>
+                <option>Student Workshop: Problem Solving, Voice, and Decision Making Through Play</option>
+                <option>Staff and Administrator Workshop: Strategic Reflection and Alignment Through Serious Play</option>
+                <option>Strategic Vision and Direction Setting</option>
+                <option>Equity, Diversity, and Inclusion Dialogue</option>
+                <option>Leadership and Cross-Level Alignment</option>
+                <option>Culture and Team Cohesion</option>
                 <option>Other</option>
               </select>
             </div>
@@ -496,7 +530,6 @@ focusSelect.addEventListener("change", () => {
   if (!showOther) otherFocusInput.value = "";
 });
 
-/* ── Contact form: mailto fallback ── */
 const contactForm = document.getElementById("contact-form");
 const formSuccess = document.getElementById("form-success");
 const formError = document.getElementById("form-error");
