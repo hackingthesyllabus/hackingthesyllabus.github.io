@@ -16,6 +16,7 @@
   --deep: #2f372c;
   --accent: #b79b5c;
   --border: 80px;
+  --box-bg: #f0efeb;
 }
 
 html { background: #e8e4d9; scroll-behavior: smooth; }
@@ -124,7 +125,7 @@ h2 {
 .row .full { grid-column: 1 / -1; }
 
 .card, .section-intro, .callout, .pricing-box {
-  background: rgba(255,255,255,0.95);
+  background: var(--box-bg);
   border-radius: 8px;
   padding: 22px 24px;
   box-shadow: 0 3px 0 rgba(0,0,0,0.09), 0 8px 20px rgba(0,0,0,0.06);
@@ -141,19 +142,27 @@ h2 {
   color: var(--muted);
   font-size: 15px;
   line-height: 1.7;
-  background: #f0efeb;
   box-shadow: 0 4px 18px rgba(0,0,0,0.09), 0 1px 4px rgba(0,0,0,0.06);
 }
 .card h3 { margin: 0 0 10px; font-size: 17px; color: var(--deep); }
-.card p { color: var(--muted); margin: 0; font-size: 14.5px; line-height: 1.7; }
+.card p { color: var(--muted); margin: 0 0 10px; font-size: 14.5px; line-height: 1.7; }
+.card p:last-child { margin-bottom: 0; }
+
+.card ul {
+  margin: 12px 0 0 20px;
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.8;
+}
+.card li { margin-bottom: 6px; }
+
 .callout {
   font-size: 15px;
-  color: #f0ede4;
+  color: var(--deep);
   line-height: 1.7;
-  background: rgba(47,55,44,0.75);
-  border: 1px solid rgba(47,55,44,0.3);
 }
-.callout strong { color: #fff; }
+.callout strong { color: var(--deep); }
+
 .pricing-box p { color: var(--muted); font-size: 14.5px; margin: 0 0 12px; }
 .pricing-box p:last-child { margin-bottom: 0; }
 
@@ -183,7 +192,8 @@ h2 {
 }
 
 .about-card {
-  background: rgba(255,255,255,0.95); border-radius: 8px; padding: 24px;
+  background: var(--box-bg);
+  border-radius: 8px; padding: 24px;
   box-shadow: 0 3px 0 rgba(0,0,0,0.08), 0 8px 20px rgba(0,0,0,0.06);
   border: 1px solid rgba(0,0,0,0.05);
 }
@@ -316,19 +326,83 @@ footer {
 <section id="services">
   <div class="wrap">
     <h2>Serious Play Workshops</h2>
+
     <div class="row reveal">
-      <div class="full section-intro">These workshops create a structured way for people to think together, name what is happening, and leave with clarity that can actually be implemented. Flexible across executive settings, team environments, and student development contexts, they meet people where they are and move them toward clear, actionable outcomes.</div>
+      <div class="card full">
+        <h3>Student Workshop: Problem Solving, Voice, and Decision Making Through Play</h3>
+        <p>This workshop shifts how students experience problem solving by focusing on how they think rather than on arriving at a single correct answer. Through hands-on model building and structured scenarios, students develop skills that carry well beyond the session:</p>
+        <ul>
+          <li>Practice interpreting information and explaining their reasoning in real time</li>
+          <li>Build flexibility, experimentation, and confidence through play-based activities</li>
+          <li>Make thinking visible so students can reflect on and strengthen their own approaches</li>
+          <li>Engage more openly and take risks they might otherwise avoid</li>
+          <li>Build stronger connections to their own learning, especially during exam preparation or academic transitions</li>
+        </ul>
+      </div>
     </div>
+
     <div class="row reveal">
-      <div class="card"><h3>Leadership and cross-level alignment</h3><p>These sessions bring executives, managers, and frontline staff into one structured conversation so expectations align and silos weaken. Participants build a shared working model of how the organization operates, where friction lives, and what must change for coordination to improve.</p></div>
-      <div class="card"><h3>Culture and team cohesion</h3><p>These sessions strengthen trust and accountability by surfacing what is usually left unsaid, clarifying expectations, and helping teams agree on how they will work together under pressure. The goal is durable cohesion that supports performance.</p></div>
+      <div class="card full">
+        <h3>Teachers Can Play Too: Reflection and Alignment Through Serious Play</h3>
+        <p>This workshop creates a structured space for educators and administrators to surface insights that are often left unspoken. Using guided model building and reflection, participants explore complex topics through metaphor, allowing difficult conversations to feel constructive rather than confrontational.</p>
+        <ul>
+          <li>Explore challenges like student engagement, burnout, and institutional change through hands-on methods</li>
+          <li>Move from individual reflection to collective alignment</li>
+          <li>Connect personal experiences to shared challenges and coordinated action</li>
+          <li>Delivered as a single session or across multiple meetings</li>
+          <li>Build stronger alignment among staff and clearer direction for improving school environments</li>
+        </ul>
+      </div>
     </div>
+
     <div class="row reveal">
-      <div class="card"><h3>Strategic vision and direction setting</h3><p>These sessions help leadership clarify priorities, make tradeoffs explicit, and leave with a shared direction and clear next steps. Participants build a concrete picture of what success requires and what must stop, start, or shift.</p></div>
-      <div class="card"><h3>Equity, diversity, and inclusion dialogue</h3><p>These sessions create a structured way to discuss equity and difference without escalation. Teams build shared understanding of how identity, perspective, and power shape collaboration and client relationships, while protecting organizational stability and long term durability.</p></div>
+      <div class="card">
+        <h3>Strategic Vision and Direction Setting</h3>
+        <p>When priorities compete and direction becomes diffuse, these sessions help leadership make tradeoffs visible and decisions explicit.</p>
+        <ul>
+          <li>Build a shared understanding of what success requires</li>
+          <li>Identify what must stop, begin, or change</li>
+          <li>Move forward with clarity and alignment</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Equity, Diversity, and Inclusion Dialogue</h3>
+        <p>Sensitive conversations around equity and difference are approached through structured, facilitated engagement.</p>
+        <ul>
+          <li>Reduce escalation while maintaining honesty</li>
+          <li>Examine how identity, perspective, and power shape collaboration</li>
+          <li>Support stability and long-term organizational durability</li>
+        </ul>
+      </div>
     </div>
+
     <div class="row reveal">
-      <div class="full callout"><strong>This is not generic corporate training.</strong> It is facilitated sensemaking that leads to decisions that actually move things forward.</div>
+      <div class="card">
+        <h3>Leadership and Cross-Level Alignment</h3>
+        <p>These sessions bring executives, managers, and frontline staff into a single structured space.</p>
+        <ul>
+          <li>Surface and align assumptions across levels</li>
+          <li>Develop a shared working model of how the organization actually functions</li>
+          <li>Identify where coordination breaks down and what needs to shift</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Culture and Team Cohesion</h3>
+        <p>Create conditions where unspoken dynamics can be expressed constructively.</p>
+        <ul>
+          <li>Strengthen trust and clarify expectations</li>
+          <li>Reinforce accountability under pressure</li>
+          <li>Build cohesion that is embedded in day-to-day practice, not temporary</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row reveal">
+      <div class="full callout">
+        <strong>This is not generic corporate training.</strong>
+      </div>
     </div>
   </div>
 </section>
