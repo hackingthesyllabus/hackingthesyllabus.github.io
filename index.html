@@ -137,32 +137,11 @@ h2 {
   box-shadow: 0 6px 0 rgba(0,0,0,0.09), 0 16px 32px rgba(0,0,0,0.10);
 }
 
-.card-alt {
-  background: rgba(235,232,224,0.95);
-}
-
 .section-intro { color: var(--muted); font-size: 15px; line-height: 1.7; background: #f0efeb; box-shadow: 0 4px 18px rgba(0,0,0,0.09), 0 1px 4px rgba(0,0,0,0.06); }
 .card h3 { margin: 0 0 10px; font-size: 17px; color: var(--deep); }
-.card p { color: var(--muted); margin: 0 0 10px; font-size: 14.5px; line-height: 1.7; }
-.card p:last-child { margin-bottom: 0; }
-.card ul { color: var(--muted); font-size: 14.5px; line-height: 1.7; margin: 8px 0 0 20px; }
-.card ul li { margin-bottom: 5px; }
-.card ul li:last-child { margin-bottom: 0; }
+.card p { color: var(--muted); margin: 0; font-size: 14.5px; line-height: 1.7; }
 .callout { font-size: 15px; color: var(--ink); line-height: 1.7; }
 .callout strong { color: var(--deep); }
-
-.callout-banner {
-  background: rgba(47,55,44,0.95);
-  color: #f0ede4;
-  border-radius: 8px;
-  padding: 22px 24px;
-  font-size: 15.5px;
-  line-height: 1.7;
-  box-shadow: 0 3px 0 rgba(0,0,0,0.15), 0 8px 20px rgba(0,0,0,0.10);
-  border: none;
-}
-.callout-banner strong { color: #f0ede4; }
-
 .pricing-box p { color: var(--muted); font-size: 14.5px; margin: 0 0 12px; }
 .pricing-box p:last-child { margin-bottom: 0; }
 
@@ -175,8 +154,6 @@ h2 {
   opacity: 1;
   transform: translateY(0);
 }
-
-.process { background-color: rgba(220,216,208,0.35); }
 
 .about-layout { display: grid; gap: 28px; align-items: start; grid-template-columns: 240px 1fr; }
 
@@ -202,8 +179,6 @@ h2 {
 .about-card p:last-child { margin-bottom: 0; }
 .about-name { font-family: "Montserrat", sans-serif; font-size: 19px; font-weight: 700; color: var(--deep); margin: 0 0 3px !important; }
 .about-role { font-size: 12px; color: var(--accent); font-weight: 500; margin: 0 0 16px !important; letter-spacing: 0.4px; text-transform: uppercase; }
-.about-contact { font-size: 14px; color: var(--deep); font-weight: 500; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(0,0,0,0.08); }
-.about-contact a { color: var(--deep); font-weight: 600; }
 
 .contact-card h3 {
   margin: 0 0 8px;
@@ -303,7 +278,7 @@ footer {
 <nav>
   <span class="nav-logo">Hacking the Syllabus</span>
   <ul>
-    <li><a href="#services">Workshops</a></li>
+    <li><a href="#services">Services</a></li>
     <li><a href="#method">Method</a></li>
     <li><a href="#formats">Format</a></li>
     <li><a href="#about">About</a></li>
@@ -314,8 +289,8 @@ footer {
 <header>
   <div class="wrap">
     <h1>Hacking the Syllabus</h1>
-    <div class="sub">Hands-on workshops for thinking, problem solving, and meaningful conversation by Ikee Gibson</div>
-    <div class="lead">Structured, hands-on workshops that help people think together in new ways. Engaging, often unexpectedly enjoyable, and designed to move groups toward clarity they can actually use.</div>
+    <div class="sub">Serious play workshops for thinking, problem solving, and meaningful conversation by Ikee Gibson</div>
+    <div class="lead">Working with educators, students, leaders, and organizations through guided, hands-on sessions that help people think together in new ways. Using building, reflection, and structured interaction, these workshops surface ideas, explore challenges, and make sense of complex situations. The process is engaging and often unexpectedly enjoyable, while helping groups move toward clarity they can actually use.</div>
     <a class="button" href="#contact">Request More Information</a>
   </div>
 </header>
@@ -328,89 +303,20 @@ footer {
 
 <section id="services">
   <div class="wrap">
-    <h2>Play Workshops</h2>
-
-    <!-- Callout banner moved to top, styled green -->
+    <h2>Serious Play Workshops</h2>
     <div class="row reveal">
-      <div class="full callout-banner"><strong>This is not generic corporate training.</strong> It is facilitated sensemaking that disarms defensiveness and makes it easier for people to speak honestly about what matters. The room can feel lighter, and the work leads to decisions that actually move things forward.</div>
+      <div class="full section-intro">These workshops create a structured way for people to think together, name what is happening, and leave with clarity that can actually be implemented. Flexible across executive settings, team environments, and student development contexts, they meet people where they are and move them toward clear, actionable outcomes.</div>
     </div>
-
     <div class="row reveal">
-      <div class="full section-intro">Flexible across executive settings, team environments, and student development contexts, these workshops meet people where they are and move them toward clear, actionable outcomes.</div>
+      <div class="card"><h3>Leadership and cross-level alignment</h3><p>These sessions bring executives, managers, and frontline staff into one structured conversation so expectations align and silos weaken. Participants build a shared working model of how the organization operates, where friction lives, and what must change for coordination to improve.</p></div>
+      <div class="card"><h3>Culture and team cohesion</h3><p>These sessions strengthen trust and accountability by surfacing what is usually left unsaid, clarifying expectations, and helping teams agree on how they will work together under pressure. The goal is durable cohesion that supports performance.</p></div>
     </div>
-
-    <!-- Student Workshop -->
     <div class="row reveal">
-      <div class="full card">
-        <h3>Student Workshop: Problem Solving, Voice, and Decision Making Through Play</h3>
-        <p>This workshop shifts how students experience problem solving by focusing on how they think rather than on arriving at a single correct answer. Through hands-on model building and structured scenarios, students develop skills that carry well beyond the session:</p>
-        <ul>
-          <li>Practice interpreting information and explaining their reasoning in real time</li>
-          <li>Build flexibility, experimentation, and confidence through play-based activities</li>
-          <li>Make thinking visible so students can reflect on and strengthen their own approaches</li>
-          <li>Engage more openly and take risks they might otherwise avoid</li>
-          <li>Build stronger connections to their own learning, especially during exam preparation or academic transitions</li>
-        </ul>
-      </div>
+      <div class="card"><h3>Strategic vision and direction setting</h3><p>These sessions help leadership clarify priorities, make tradeoffs explicit, and leave with a shared direction and clear next steps. Participants build a concrete picture of what success requires and what must stop, start, or shift.</p></div>
+      <div class="card"><h3>Equity, diversity, and inclusion dialogue</h3><p>These sessions create a structured way to discuss equity and difference without escalation. Teams build shared understanding of how identity, perspective, and power shape collaboration and client relationships, while protecting organizational stability and long term durability.</p></div>
     </div>
-
-    <!-- Staff and Administrator Workshop (alternate bg) -->
     <div class="row reveal">
-      <div class="full card card-alt">
-        <h3>Teachers Can Play Too: Reflection and Alignment Through Serious Play</h3>
-        <p>This workshop creates a structured space for educators and administrators to surface insights that are often left unspoken. Using guided model building and reflection, participants explore complex topics through metaphor, allowing difficult conversations to feel constructive rather than confrontational.</p>
-        <ul>
-          <li>Explore challenges like student engagement, burnout, and institutional change through hands-on methods</li>
-          <li>Move from individual reflection to collective alignment</li>
-          <li>Connect personal experiences to shared challenges and coordinated action</li>
-          <li>Delivered as a single session or across multiple meetings</li>
-          <li>Build stronger alignment among staff and clearer direction for improving school environments</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Strategic Vision + EDI -->
-    <div class="row reveal">
-      <div class="card">
-        <h3>Strategic Vision and Direction Setting</h3>
-        <p>When priorities compete and direction becomes diffuse, these sessions help leadership make tradeoffs visible and decisions explicit.</p>
-        <ul>
-          <li>Build a shared understanding of what success requires</li>
-          <li>Identify what must stop, begin, or change</li>
-          <li>Move forward with clarity and alignment</li>
-        </ul>
-      </div>
-      <div class="card card-alt">
-        <h3>Equity, Diversity, and Inclusion Dialogue</h3>
-        <p>Sensitive conversations around equity and difference are approached through structured, facilitated engagement.</p>
-        <ul>
-          <li>Reduce escalation while maintaining honesty</li>
-          <li>Examine how identity, perspective, and power shape collaboration</li>
-          <li>Support stability and long-term organizational durability</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Leadership + Culture -->
-    <div class="row reveal">
-      <div class="card">
-        <h3>Leadership and Cross-Level Alignment</h3>
-        <p>These sessions bring executives, managers, and frontline staff into a single structured space.</p>
-        <ul>
-          <li>Surface and align assumptions across levels</li>
-          <li>Develop a shared working model of how the organization actually functions</li>
-          <li>Identify where coordination breaks down and what needs to shift</li>
-        </ul>
-      </div>
-      <div class="card card-alt">
-        <h3>Culture and Team Cohesion</h3>
-        <p>Create conditions where unspoken dynamics can be expressed constructively.</p>
-        <ul>
-          <li>Strengthen trust and clarify expectations</li>
-          <li>Reinforce accountability under pressure</li>
-          <li>Build cohesion that is embedded in day-to-day practice, not temporary</li>
-        </ul>
-      </div>
+      <div class="full callout"><strong>This is not generic corporate training.</strong> It is facilitated sensemaking that leads to decisions that actually move things forward.</div>
     </div>
   </div>
 </section>
@@ -422,24 +328,21 @@ footer {
       <div class="full section-intro">For over eight years, I have designed and facilitated serious play style workshops across boardroom settings, team environments, education spaces, and youth focused programs. Sessions often include LEGO and other simple hands-on tools. The purpose is to lower defenses so groups can surface what is usually hard to say, explore options faster, and move toward shared clarity.</div>
     </div>
     <div class="row reveal">
-      <div class="full card">
-        <h3>Research Grounded Documentation</h3>
-        <p>I combine facilitation with research based techniques for data gathering, coding, and synthesis. Organizations can receive tailored deliverables such as thematic summaries, decision logs, and management ready reports. Reporting can draw on qualitative and quantitative approaches depending on the goal and the engagement format.</p>
-        <p style="margin-top:12px; font-style:italic; color:var(--muted); font-size:13.5px;">Note: This work draws inspiration from serious play style facilitation. It does not claim LEGO Serious Play certification.</p>
-      </div>
+      <div class="card"><h3>Research grounded documentation</h3><p>I combine facilitation with research based techniques for data gathering, coding, and synthesis. Organizations can receive tailored deliverables such as thematic summaries, decision logs, and management ready reports. Reporting can draw on qualitative and quantitative approaches depending on the goal and the engagement format.</p></div>
+      <div class="card"><h3>Important note</h3><p>This work draws inspiration from serious play style facilitation. It does not claim LEGO Serious Play certification.</p></div>
     </div>
   </div>
 </section>
 
-<section class="process" id="formats">
+<section id="formats">
   <div class="wrap">
     <h2>Format</h2>
     <div class="row reveal">
       <div class="full section-intro">Sessions can be two hours, three hours, half day, full day, or a three day engagement that brings in different stakeholder groups. Group sizes can be four to twenty. The ideal size is eight to twelve.</div>
     </div>
     <div class="row reveal">
-      <div class="card"><h3>How It Works</h3><p>We start with a short discovery conversation to clarify outcomes and participants. I then design the session structure and any light prework. We run the workshop and close with clear themes, decisions, and next steps.</p></div>
-      <div class="card"><h3>Documentation Options</h3><p>Documentation can include a synthesis memo, leadership ready recommendations, or visual documentation when useful. Scope depends on your goals, session length, and how many stakeholder groups are involved.</p></div>
+      <div class="card"><h3>How it works</h3><p>We start with a short discovery conversation to clarify outcomes and participants. I then design the session structure and any light prework. We run the workshop and close with clear themes, decisions, and next steps.</p></div>
+      <div class="card"><h3>Documentation options</h3><p>Documentation can include a synthesis memo, leadership ready recommendations, or visual documentation when useful. Scope depends on your goals, session length, and how many stakeholder groups are involved.</p></div>
     </div>
   </div>
 </section>
@@ -468,13 +371,10 @@ footer {
           </div>
           <div class="about-card">
             <p class="about-name">Ikee Gibson</p>
-            <p class="about-role">Facilitator &middot; Toronto, Ontario</p>
+            <p class="about-role">Facilitator &amp; PhD Candidate &middot; Toronto, Ontario</p>
             <p>Ikee Gibson is a PhD candidate whose work examines how organizations interpret and respond to change, particularly in the context of shifting populations and evolving institutional demands.</p>
             <p>His research draws on organizational theory, culture, and stratification to understand how people make sense of complexity and how those interpretations shape everyday practice.</p>
             <p>Alongside this work, Ikee has a longstanding interest in problem solving, especially in team environments where progress depends on how people think together. His facilitation builds from that interest. Using structured, hands-on methods grounded in play, he creates space for groups to surface insight, rethink assumptions, and move toward shared clarity. In this context, play is not a break from the work. It is a way of doing the work differently, reducing monotony, inviting participation, and often unlocking forms of thinking that more conventional approaches miss.</p>
-            <p class="about-contact">
-              <a href="mailto:ikee@hackingthesyllabus.ca">ikee@hackingthesyllabus.ca</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="tel:6473004904">647-300-4904</a>
-            </p>
           </div>
         </div>
       </div>
@@ -511,12 +411,14 @@ footer {
               <label for="interest">Workshop focus</label>
               <select id="interest" name="Workshop focus" required>
                 <option value="">Select a focus area&hellip;</option>
-                <option>Student Workshop: Problem Solving, Voice, and Decision Making Through Play</option>
-                <option>Teachers Can Play Too: Reflection and Alignment Through Serious Play</option>
-                <option>Strategic Vision and Direction Setting</option>
-                <option>Equity, Diversity, and Inclusion Dialogue</option>
-                <option>Leadership and Cross-Level Alignment</option>
-                <option>Culture and Team Cohesion</option>
+                <option>Professional development</option>
+                <option>Student problem solving and engagement</option>
+                <option>Difficult conversations</option>
+                <option>Team building</option>
+                <option>Leadership and cross-level alignment</option>
+                <option>Culture and team cohesion</option>
+                <option>Strategic vision and direction setting</option>
+                <option>Equity, diversity, and inclusion dialogue</option>
                 <option>Other</option>
               </select>
             </div>
