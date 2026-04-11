@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hacking the Syllabus | Strategic Facilitation</title>
+<meta name="description" content="Strategic facilitation workshops for vision, culture, alignment, and constructive conversations. Toronto, Ontario.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink: #1a1a1a;
+  --muted: #555;
+  --deep: #2f372c;
+  --accent: #b79b5c;
+  --border: 80px;
+}
+
+html { background: #e8e4d9; scroll-behavior: smooth; }
+
+body {
+  margin: var(--border);
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--ink);
+  line-height: 1.6;
+  background-image: url(hts-bground.png);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-color: #d4d0c8;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.07), 0 6px 32px rgba(0,0,0,0.15);
+  overflow-x: hidden;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(47,55,44,0.97);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 52px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+nav .nav-logo {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #f0ede4;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+nav ul { display: flex; list-style: none; gap: 28px; }
+nav ul a {
+  color: rgba(240,237,228,0.75);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+  letter-spacing: 0.3px;
+}
+nav ul a:hover { color: #f0ede4; }
+
+h1,h2,h3 { font-family: "Montserrat", sans-serif; letter-spacing: -0.3px; }
+a { color: inherit; text-decoration: none; }
+
+.wrap { max-width: 952px; margin: 0 auto; padding: 0 24px; }
+
+header {
+  background: rgba(47,55,44,0.95);
+  color: #f0ede4;
+  padding: 72px 0 104px;
+  text-align: center;
+}
+header h1 { font-size: clamp(28px, 5vw, 50px); font-weight: 700; line-height: 1.15; }
+header .sub {
+  max-width: 760px;
+  margin: 16px auto 0;
+  font-size: 17.5px;
+  font-weight: 500;
+  opacity: 0.85;
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+}
+header .lead { max-width: 820px; margin: 18px auto 0; font-size: 17px; opacity: 0.9; line-height: 1.7; }
+header .lead-emphasis {
+  max-width: 820px;
+  margin: 22px auto 0;
+  font-size: 15px;
+  opacity: 0.65;
+  letter-spacing: 0.3px;
+  font-style: italic;
+}
+
+.button {
+  display: inline-block; margin-top: 28px; padding: 13px 28px;
+  background: #f0ede4; color: var(--deep); border-radius: 8px;
+  font-weight: 700; font-family: "Montserrat", sans-serif; font-size: 14px;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.25); transition: transform .15s, box-shadow .15s;
+  border: none; cursor: pointer; letter-spacing: 0.2px;
+}
+.button:hover { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,0.2); }
+
+.hero { margin-top: -52px; padding-bottom: 0; }
+.hero img {
+  width: 100%; height: 500px; object-fit: cover;
+  border-radius: 10px; border: 5px solid rgba(255,255,255,0.9);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.18); display: block;
+}
+
+section { padding: 60px 0; }
+
+h2 {
+  font-size: 24px; margin: 0 0 16px; color: var(--deep);
+  display: inline-block;
+  background: rgba(255,255,255,0.92);
+  padding: 5px 16px; border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.row:last-child { margin-bottom: 0; }
+.row .full { grid-column: 1 / -1; }
+
+.card, .section-intro, .callout, .pricing-box {
+  background: rgba(255,255,255,0.95);
+  border-radius: 8px;
+  padding: 22px 24px;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.09), 0 8px 20px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 0 rgba(0,0,0,0.09), 0 16px 32px rgba(0,0,0,0.10);
+}
+
+.section-intro { color: var(--muted); font-size: 15px; line-height: 1.7; }
+.card h3 { margin: 0 0 12px; font-size: 17px; color: var(--deep); }
+.card p { color: var(--muted); margin: 0 0 10px; font-size: 14.5px; line-height: 1.7; }
+.card p:last-child { margin-bottom: 0; }
+.card ul {
+  margin: 0 0 10px 20px;
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.8;
+}
+.card li { margin-bottom: 5px; }
+
+/*
+  Panel illustration crop.
+  Image: 1408×768. Each quadrant: 704×384.
+  background-size: 200% auto → image renders at 2× container width, proportional height.
+  background-position x: 0% = left panel, 100% = right panel.
+  background-position y: 0% = top panel, 100% = bottom panel.
+  aspect-ratio 704/384 ensures the container height shows exactly one vertical half.
+*/
+.panel-img {
+  flex: 0 0 35%;
+  background-image: url(workshop-panels.png);
+  background-size: 200% auto;
+  background-repeat: no-repeat;
+  aspect-ratio: 704 / 384;
+  border-radius: 6px;
+  align-self: center;
+}
+.panel-tl { background-position: 0%   0%;   }
+.panel-tr { background-position: 100% 0%;   }
+.panel-bl { background-position: 0%   100%; }
+.panel-br { background-position: 100% 100%; }
+
+/* Flex wrapper that holds a panel beside text */
+.panel-row {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  margin: 14px 0;
+}
+.panel-row.img-right  { flex-direction: row; }
+.panel-row.img-left   { flex-direction: row-reverse; }
+.panel-row-text {
+  flex: 1;
+  min-width: 0;
+}
+.panel-row-text p  { color: var(--muted); font-size: 14.5px; line-height: 1.7; margin: 0 0 10px; }
+.panel-row-text p:last-child { margin-bottom: 0; }
+.panel-row-text ul { margin: 0 0 0 20px; color: var(--muted); font-size: 14.5px; line-height: 1.8; }
+.panel-row-text li { margin-bottom: 5px; }
+
+.callout { font-size: 15px; color: var(--ink); line-height: 1.7; }
+.callout strong { color: var(--deep); }
+.pricing-box p { color: var(--muted); font-size: 14.5px; margin: 0 0 12px; }
+.pricing-box p:last-child { margin-bottom: 0; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.about-layout { display: grid; gap: 28px; align-items: start; grid-template-columns: 240px 1fr; }
+
+.photo-shell {
+  position: relative; border-radius: 8px; overflow: hidden;
+  border: 5px solid rgba(255,255,255,0.95);
+  box-shadow: 0 5px 0 rgba(0,0,0,0.13), 0 12px 28px rgba(0,0,0,0.12);
+  user-select: none; -webkit-user-select: none;
+}
+.photo-shell::after { content: ''; position: absolute; inset: 0; z-index: 2; cursor: default; }
+.photo-shell img {
+  width: 100%; aspect-ratio: 1/1; object-fit: cover;
+  object-position: center top; display: block;
+  pointer-events: none; -webkit-user-drag: none; user-select: none;
+}
+
+.about-card {
+  background: rgba(255,255,255,0.95); border-radius: 8px; padding: 24px;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.08), 0 8px 20px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.about-card p { color: var(--muted); font-size: 14.5px; margin: 0 0 12px; line-height: 1.7; }
+.about-card p:last-child { margin-bottom: 0; }
+.about-name { font-family: "Montserrat", sans-serif; font-size: 19px; font-weight: 700; color: var(--deep); margin: 0 0 3px !important; }
+.about-role { font-size: 12px; color: var(--accent); font-weight: 500; margin: 0 0 16px !important; letter-spacing: 0.4px; text-transform: uppercase; }
+
+.contact-card h3 { margin: 0 0 8px; font-size: 18px; color: var(--deep); }
+.contact-email { margin: 0 0 18px; font-size: 14px; color: var(--muted); }
+.contact-email a { color: var(--deep); font-weight: 600; }
+.hidden { display: none; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.form-grid .span2 { grid-column: 1 / -1; }
+label { display: block; font-size: 12px; font-weight: 600; color: var(--deep); letter-spacing: 0.4px; text-transform: uppercase; margin-bottom: 5px; }
+input[type="text"], input[type="email"], textarea, select {
+  width: 100%; padding: 10px 14px;
+  background: rgba(255,255,255,0.85);
+  border: 1.5px solid rgba(47,55,44,0.2);
+  border-radius: 6px; font-family: "Inter", sans-serif;
+  font-size: 14px; color: var(--ink);
+  outline: none; transition: border-color 0.2s;
+  resize: vertical;
+}
+input:focus, textarea:focus, select:focus { border-color: var(--deep); background: #fff; }
+textarea { min-height: 100px; }
+.submit-btn {
+  display: inline-block; padding: 12px 28px;
+  background: var(--deep); color: #f0ede4;
+  border-radius: 8px; font-weight: 700;
+  font-family: "Montserrat", sans-serif; font-size: 14px;
+  border: none; cursor: pointer; letter-spacing: 0.2px;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.2);
+  transition: transform .15s, box-shadow .15s;
+}
+.submit-btn:hover { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,0.15); }
+.form-success {
+  display: none; padding: 14px 18px; background: rgba(47,55,44,0.08);
+  border-radius: 6px; color: var(--deep); font-size: 14px; font-weight: 500;
+  border: 1.5px solid rgba(47,55,44,0.2); margin-top: 12px;
+}
+.form-error {
+  display: none; padding: 14px 18px; background: rgba(126,30,30,0.08);
+  border-radius: 6px; color: #6e1f1f; font-size: 14px; font-weight: 500;
+  border: 1.5px solid rgba(126,30,30,0.2); margin-top: 12px;
+}
+
+#back-top {
+  position: fixed; bottom: 28px; right: 28px;
+  width: 42px; height: 42px;
+  background: rgba(47,55,44,0.88);
+  color: #f0ede4; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  opacity: 0; transition: opacity 0.3s;
+  z-index: 200; border: none;
+  pointer-events: none;
+}
+#back-top.show { opacity: 1; pointer-events: auto; }
+#back-top:hover { background: rgba(47,55,44,1); }
+
+#progress {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: var(--accent); width: 0%;
+  transition: width 0.1s linear; z-index: 999;
+}
+
+.keyword-strip { padding: 40px 0; text-align: center; }
+.keyword-strip .wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.keyword-strip span {
+  display: inline-block;
+  padding: 5px 14px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--muted);
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+}
+
+footer {
+  background: rgba(47,55,44,0.96);
+  padding: 30px 0; font-size: 13px;
+  color: rgba(255,255,255,0.45); text-align: center;
+}
+
+@media(max-width: 860px) {
+  .row { grid-template-columns: 1fr; }
+  .row .full { grid-column: 1; }
+  .about-layout { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .form-grid .span2 { grid-column: 1; }
+  nav ul { gap: 16px; }
+  .panel-row { flex-direction: column !important; }
+  .panel-img { flex: none; width: 70%; align-self: center; }
+}
+@media(max-width: 600px) {
+  :root { --border: 12px; }
+  nav { padding: 0 16px; }
+  .panel-img { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav>
+  <span class="nav-logo">Hacking the Syllabus</span>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#method">Method</a></li>
+    <li><a href="#formats">Format</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header>
+  <div class="wrap">
+    <h1>Hacking the Syllabus</h1>
+    <div class="sub">Serious play workshops for thinking, problem solving, and meaningful conversation by Ikee Gibson</div>
+    <div class="lead">Working with educators, students, leaders, and organizations through guided, hands-on sessions that help teams and individuals think together in new ways. These workshops use physical tools and play to disarm and remove barriers, making it easier to surface ideas, explore challenges, and make sense of complex situations. The process is engaging and often unexpectedly enjoyable, while helping groups move toward clarity they can actually use.</div>
+    <div class="lead-emphasis">This is not generic corporate training.</div>
+    <a class="button" href="#contact">Request More Information</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <img src="workshop.jpg" alt="Strategic facilitation workshop in session">
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <h2>Serious Play Workshops</h2>
+
+    <!-- ── Student Workshop ── -->
+    <div class="row reveal">
+      <div class="card full">
+        <h3>Student Workshop: Problem Solving, Voice, and Decision Making Through Play</h3>
+
+        <!-- Intro paras beside Building Ideas panel (top-left) -->
+        <div class="panel-row img-right">
+          <div class="panel-row-text">
+            <p>This is not LEGO robotics or technical building. There is no coding or expectation of expertise. Students build with simple materials, and the focus is not on what they produce, but on how they interpret a task and explain their thinking.</p>
+            <p>The workshop begins with short, engaging challenges such as building the tallest tower, creating a bridge with limited pieces, or representing an abstract idea. These activities are sometimes lightly competitive and are designed to get students participating quickly. What matters is how they justify their build and make their thinking visible.</p>
+          </div>
+          <div class="panel-img panel-tl" role="img" aria-label="Building Ideas: students collaborating around a tower of bricks"></div>
+        </div>
+
+        <!-- Reflection section beside Thinking Through Problem Solving panel (top-right) -->
+        <div class="panel-row img-left">
+          <div class="panel-img panel-tr" role="img" aria-label="Thinking Through Problem Solving: students working through a structured challenge"></div>
+          <div class="panel-row-text">
+            <p>The session then shifts. Students use builds to explore ideas about themselves, including strengths, goals, challenges, and how they experience school. Prompts are intentionally open so students can define them in ways that feel meaningful. This becomes a form of experience mapping, where students make visible where they feel confident, where they feel stretched, where they feel supported, and where they feel challenged. The process can function like group advising or counseling, without feeling like it.</p>
+            <ul>
+              <li>Start with problem-solving builds focused on interpretation and explanation</li>
+              <li>Use building to explore personal experiences and abstract ideas</li>
+              <li>Map individual experiences of school through builds and shared reflection</li>
+              <li>Share and interpret models to understand different ways of thinking</li>
+              <li>Build onto and combine models to experience collaboration and collective meaning</li>
+              <li>Use shared builds to open conversation about relationships, belonging, and inclusion</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>The outcome is a shift in how students see problem solving and themselves. They begin to recognize that their ideas have value and that challenges can be approached with the tools they already have.</p>
+      </div>
+    </div>
+
+    <!-- ── Teachers and Administrators Workshop ── -->
+    <div class="row reveal">
+      <div class="card full">
+        <h3>Teachers and Administrators: Reflection and Alignment Through Serious Play</h3>
+        <p>This workshop follows the same structure, beginning with short, non-technical problem-solving builds that emphasize interpretation and multiple perspectives. These moments create an accessible entry point and are revisited throughout the session to maintain engagement.</p>
+        <p style="margin-bottom:14px;">Builds are then used to represent experiences within the school environment, including team dynamics, burnout, and shifting responsibilities. Participants move through a structured process that blends multiple lenses. They identify strengths and pressures, map assets and barriers, and compare the current state of their environment with where they want it to be. This allows for both honest reflection and forward-looking alignment without the process feeling rigid or overly formal.</p>
+
+        <!-- Bullet list beside SWOT panel (bottom-left) -->
+        <div class="panel-row img-right">
+          <div class="panel-row-text">
+            <ul>
+              <li>Begin with problem-solving builds that surface different approaches and perspectives</li>
+              <li>Use models to represent individual experiences within the school</li>
+              <li>Identify strengths, challenges, assets, and barriers through shared builds</li>
+              <li>Compare current realities with a desired future state to support visioning</li>
+              <li>Use structured reflection — including SWOT elements — to clarify priorities and opportunities</li>
+              <li>Combine builds to map how roles and experiences connect across the organization</li>
+            </ul>
+          </div>
+          <div class="panel-img panel-bl" role="img" aria-label="SWOT Analysis workshop: mapping strengths, weaknesses, opportunities, and threats"></div>
+        </div>
+
+        <!-- Outcome paragraph beside Group Collaboration panel (bottom-right) -->
+        <div class="panel-row img-left">
+          <div class="panel-img panel-br" role="img" aria-label="Group Collaboration: Shared Idea — team building a collective vision together"></div>
+          <div class="panel-row-text">
+            <p>The result is clearer alignment, stronger communication, and a shared understanding of how to move forward, grounded in how people actually experience their work.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── Strategic Vision + EDI ── -->
+    <div class="row reveal">
+      <div class="card">
+        <h3>Strategic Vision and Direction Setting</h3>
+        <p>When priorities compete and direction becomes diffuse, these sessions help leadership make tradeoffs visible and decisions explicit.</p>
+        <ul>
+          <li>Build a shared understanding of what success requires</li>
+          <li>Identify what must stop, begin, or change</li>
+          <li>Move forward with clarity and alignment</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Equity, Diversity, and Inclusion Dialogue</h3>
+        <p>Sensitive conversations around equity and difference are approached through structured, facilitated engagement.</p>
+        <ul>
+          <li>Reduce escalation while maintaining honesty</li>
+          <li>Examine how identity, perspective, and power shape collaboration</li>
+          <li>Support stability and long term organizational durability</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── Leadership + Culture ── -->
+    <div class="row reveal">
+      <div class="card">
+        <h3>Leadership and Cross-Level Alignment</h3>
+        <p>These sessions bring executives, managers, and frontline staff into a single structured space.</p>
+        <ul>
+          <li>Surface and align assumptions across levels</li>
+          <li>Develop a shared working model of how the organization actually functions</li>
+          <li>Identify where coordination breaks down and what needs to shift</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Culture and Team Cohesion</h3>
+        <p>Create conditions where unspoken dynamics can be expressed constructively.</p>
+        <ul>
+          <li>Strengthen trust and clarify expectations</li>
+          <li>Reinforce accountability under pressure</li>
+          <li>Build cohesion that is embedded in day to day practice, not temporary</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="method">
+  <div class="wrap">
+    <h2>Method &amp; Outputs</h2>
+    <div class="row reveal">
+      <div class="full section-intro">For over eight years, I have designed and facilitated serious play style workshops across boardroom settings, team environments, education spaces, and youth focused programs. Sessions often include LEGO and other simple hands-on tools. The purpose is to lower defenses so groups can surface what is usually hard to say, explore options faster, and move toward shared clarity.</div>
+    </div>
+    <div class="row reveal">
+      <div class="card"><h3>Research Grounded Documentation</h3><p>I combine facilitation with research based techniques for data gathering, coding, and synthesis. Organizations can receive tailored deliverables such as thematic summaries, decision logs, and management ready reports. Reporting can draw on qualitative and quantitative approaches depending on the goal and the engagement format.</p></div>
+      <div class="card"><h3>Important Note</h3><p>This work draws inspiration from serious play style facilitation. It does not claim LEGO Serious Play certification.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="formats">
+  <div class="wrap">
+    <h2>Format</h2>
+    <div class="row reveal">
+      <div class="full section-intro">Sessions can be two hours, three hours, half day, full day, or a three day engagement that brings in different stakeholder groups. Group sizes can be four to twenty. The ideal size is eight to twelve.</div>
+    </div>
+    <div class="row reveal">
+      <div class="card"><h3>How It Works</h3><p>We start with a short discovery conversation to clarify outcomes and participants. I then design the session structure and any light prework. We run the workshop and close with clear themes, decisions, and next steps.</p></div>
+      <div class="card"><h3>Documentation Options</h3><p>Documentation can include a synthesis memo, leadership ready recommendations, or visual documentation when useful. Scope depends on your goals, session length, and how many stakeholder groups are involved.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <h2>Pricing</h2>
+    <div class="row reveal">
+      <div class="full pricing-box">
+        <p>Every engagement is custom scoped. Format, duration, and documentation are designed around your objectives.</p>
+        <p>Email a brief description of your goal and timeline, and I will provide a clear proposal.</p>
+        <p><a href="mailto:ikee@hackingthesyllabus.ca?subject=Workshop%20Inquiry" style="color:var(--deep);font-weight:500;">ikee@hackingthesyllabus.ca</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <div class="row reveal">
+      <div class="full">
+        <div class="about-layout">
+          <div class="photo-shell">
+            <img src="ikee.png" alt="Facilitator" draggable="false" oncontextmenu="return false;">
+          </div>
+          <div class="about-card">
+            <p class="about-name">Ikee Gibson</p>
+            <p class="about-role">Facilitator &middot; Toronto, Ontario</p>
+            <p>Ikee Gibson is a PhD candidate whose work examines how organizations interpret and respond to change, particularly in the context of shifting populations and evolving institutional demands.</p>
+            <p>His research draws on organizational theory, culture, and stratification to understand how people make sense of complexity and how those interpretations shape everyday practice.</p>
+            <p>Alongside this work, Ikee has a longstanding interest in problem solving, especially in team environments where progress depends on how people think together. His facilitation builds from that interest. Using structured, hands-on methods grounded in play, he creates space for groups to surface insight, rethink assumptions, and move toward shared clarity. In this context, play is not a break from the work. It is a way of doing the work differently, reducing monotony, inviting participation, and often unlocking forms of thinking that more conventional approaches miss.</p>
+            <p>You can reach Ikee directly at <a href="mailto:ikee@hackingthesyllabus.ca" style="color:var(--deep);font-weight:600;">ikee@hackingthesyllabus.ca</a> or <strong>647-300-4904</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <div class="row reveal">
+      <div class="full card contact-card">
+        <h3>Tell us what you are trying to solve, who should be involved, and your timeline</h3>
+        <p class="contact-email">Email: <a href="mailto:ikee@hackingthesyllabus.ca">ikee@hackingthesyllabus.ca</a></p>
+        <form id="contact-form" action="https://formspree.io/f/xojpbgyj" method="POST">
+          <div class="form-grid">
+            <div>
+              <label for="fname">First name</label>
+              <input type="text" id="fname" name="First name" placeholder="Jane" required>
+            </div>
+            <div>
+              <label for="lname">Last name</label>
+              <input type="text" id="lname" name="Last name" placeholder="Smith" required>
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="Email" placeholder="jane@organization.com" required>
+            </div>
+            <div>
+              <label for="org">Organization</label>
+              <input type="text" id="org" name="Organization" placeholder="Your organization">
+            </div>
+            <div class="span2">
+              <label for="interest">Workshop focus</label>
+              <select id="interest" name="Workshop focus" required>
+                <option value="">Select a focus area&hellip;</option>
+                <option>Student Workshop: Problem Solving, Voice, and Decision Making Through Play</option>
+                <option>Teachers and Administrators: Reflection and Alignment Through Serious Play</option>
+                <option>Strategic Vision and Direction Setting</option>
+                <option>Equity, Diversity, and Inclusion Dialogue</option>
+                <option>Leadership and Cross-Level Alignment</option>
+                <option>Culture and Team Cohesion</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="span2 hidden" id="other-focus-wrap">
+              <label for="other-focus">Other workshop focus</label>
+              <input type="text" id="other-focus" name="Other workshop focus" placeholder="Tell us the focus you have in mind">
+            </div>
+            <div class="span2">
+              <label for="message">Project details</label>
+              <textarea id="message" name="Project details" placeholder="Briefly describe your goal, who should be in the room, and your timeline&hellip;" required></textarea>
+            </div>
+          </div>
+          <input type="hidden" name="_subject" value="Workshop Inquiry">
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+        <div class="form-success" id="form-success">&#10003;&nbsp; Thank you. Your message has been sent.</div>
+        <div class="form-error" id="form-error">There was a problem sending your message. Please email ikee@hackingthesyllabus.ca directly.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="keyword-strip">
+  <div class="wrap">
+    <span>Serious Play</span>
+    <span>LEGO-Based Facilitation</span>
+    <span>Team Building</span>
+    <span>Educational Workshops</span>
+    <span>Leadership Development</span>
+    <span>Hands-On Learning</span>
+    <span>Strategic Facilitation</span>
+    <span>Professional Development</span>
+    <span>Student Engagement</span>
+    <span>Organizational Alignment</span>
+    <span>Collaborative Problem Solving</span>
+    <span>Toronto, Ontario</span>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">&copy; <span id="year"></span> Hacking the Syllabus | Toronto, Ontario</div>
+</footer>
+
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">&#8679;</button>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.querySelectorAll(".photo-shell, .photo-shell img").forEach(el => {
+  el.addEventListener("contextmenu", e => e.preventDefault());
+  el.addEventListener("dragstart", e => e.preventDefault());
+});
+document.addEventListener("keydown", e => {
+  if((e.ctrlKey||e.metaKey) && ["s","u","p"].includes(e.key.toLowerCase())) e.preventDefault();
+});
+
+const prog = document.getElementById("progress");
+window.addEventListener("scroll", () => {
+  const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  prog.style.width = Math.min(scrolled, 100) + "%";
+}, {passive: true});
+
+const backTop = document.getElementById("back-top");
+window.addEventListener("scroll", () => {
+  backTop.classList.toggle("show", window.scrollY > 400);
+}, {passive: true});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+const focusSelect = document.getElementById("interest");
+const otherFocusWrap = document.getElementById("other-focus-wrap");
+const otherFocusInput = document.getElementById("other-focus");
+
+focusSelect.addEventListener("change", () => {
+  const showOther = focusSelect.value === "Other";
+  otherFocusWrap.classList.toggle("hidden", !showOther);
+  otherFocusInput.required = showOther;
+  if (!showOther) otherFocusInput.value = "";
+});
+
+const contactForm = document.getElementById("contact-form");
+const formSuccess = document.getElementById("form-success");
+const formError = document.getElementById("form-error");
+
+contactForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  formSuccess.style.display = "none";
+  formError.style.display = "none";
+  try {
+    const response = await fetch(contactForm.action, {
+      method: "POST",
+      body: new FormData(contactForm),
+      headers: { "Accept": "application/json" }
+    });
+    if (response.ok) {
+      contactForm.reset();
+      otherFocusWrap.classList.add("hidden");
+      otherFocusInput.required = false;
+      formSuccess.style.display = "block";
+    } else {
+      formError.style.display = "block";
+    }
+  } catch (error) {
+    formError.style.display = "block";
+  }
+});
+</script>
+</body>
+</html>
