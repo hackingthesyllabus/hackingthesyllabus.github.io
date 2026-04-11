@@ -149,7 +149,7 @@ h2 {
 }
 
 .section-intro { color: var(--muted); font-size: 15px; line-height: 1.7; }
-.card h3 { margin: 0 0 10px; font-size: 17px; color: var(--deep); }
+.card h3 { margin: 0 0 12px; font-size: 17px; color: var(--deep); }
 .card p { color: var(--muted); margin: 0 0 10px; font-size: 14.5px; line-height: 1.7; }
 .card p:last-child { margin-bottom: 0; }
 .card ul {
@@ -158,31 +158,47 @@ h2 {
   font-size: 14.5px;
   line-height: 1.8;
 }
-.card li { margin-bottom: 6px; }
+.card li { margin-bottom: 5px; }
 
 /*
-  Panel illustration — each panel is one quadrant of workshop-panels.png (1408×768).
-  background-size: 200% 200% renders the full image at double size so each container
-  shows exactly one quadrant. No border, no shadow — blends into the card.
-  Aspect ratio 704:384 = 11:6 per panel.
+  Panel illustration crop.
+  Image: 1408×768. Each quadrant: 704×384.
+  background-size: 200% auto → image renders at 2× container width, proportional height.
+  background-position x: 0% = left panel, 100% = right panel.
+  background-position y: 0% = top panel, 100% = bottom panel.
+  aspect-ratio 704/384 ensures the container height shows exactly one vertical half.
 */
-.panel-crop {
-  display: block;
-  width: calc(100% + 48px);   /* bleed past the card's 24px padding on each side */
-  margin-left: -24px;
+.panel-img {
+  flex: 0 0 35%;
   background-image: url(workshop-panels.png);
-  background-size: 200% 200%;
+  background-size: 200% auto;
   background-repeat: no-repeat;
   aspect-ratio: 704 / 384;
+  border-radius: 6px;
+  align-self: center;
 }
 .panel-tl { background-position: 0%   0%;   }
 .panel-tr { background-position: 100% 0%;   }
 .panel-bl { background-position: 0%   100%; }
 .panel-br { background-position: 100% 100%; }
 
-/* spacing helpers around panels inside cards */
-.panel-above { margin-bottom: 14px; }
-.panel-below { margin-top: 14px;   }
+/* Flex wrapper that holds a panel beside text */
+.panel-row {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  margin: 14px 0;
+}
+.panel-row.img-right  { flex-direction: row; }
+.panel-row.img-left   { flex-direction: row-reverse; }
+.panel-row-text {
+  flex: 1;
+  min-width: 0;
+}
+.panel-row-text p  { color: var(--muted); font-size: 14.5px; line-height: 1.7; margin: 0 0 10px; }
+.panel-row-text p:last-child { margin-bottom: 0; }
+.panel-row-text ul { margin: 0 0 0 20px; color: var(--muted); font-size: 14.5px; line-height: 1.8; }
+.panel-row-text li { margin-bottom: 5px; }
 
 .callout { font-size: 15px; color: var(--ink); line-height: 1.7; }
 .callout strong { color: var(--deep); }
@@ -308,10 +324,13 @@ footer {
   .form-grid { grid-template-columns: 1fr; }
   .form-grid .span2 { grid-column: 1; }
   nav ul { gap: 16px; }
+  .panel-row { flex-direction: column !important; }
+  .panel-img { flex: none; width: 70%; align-self: center; }
 }
 @media(max-width: 600px) {
   :root { --border: 12px; }
   nav { padding: 0 16px; }
+  .panel-img { width: 100%; }
 }
 </style>
 </head>
@@ -354,26 +373,33 @@ footer {
     <div class="row reveal">
       <div class="card full">
         <h3>Student Workshop: Problem Solving, Voice, and Decision Making Through Play</h3>
-        <p>This is not LEGO robotics or technical building. There is no coding or expectation of expertise. Students build with simple materials, and the focus is not on what they produce, but on how they interpret a task and explain their thinking.</p>
-        <p>The workshop begins with short, engaging challenges such as building the tallest tower, creating a bridge with limited pieces, or representing an abstract idea. These activities are sometimes lightly competitive and are designed to get students participating quickly. What matters is how they justify their build and make their thinking visible.</p>
 
-        <!-- Top-left panel: Building Ideas -->
-        <div class="panel-crop panel-tl panel-above" role="img" aria-label="Building Ideas: students collaborating around a tower of LEGO bricks"></div>
+        <!-- Intro paras beside Building Ideas panel (top-left) -->
+        <div class="panel-row img-right">
+          <div class="panel-row-text">
+            <p>This is not LEGO robotics or technical building. There is no coding or expectation of expertise. Students build with simple materials, and the focus is not on what they produce, but on how they interpret a task and explain their thinking.</p>
+            <p>The workshop begins with short, engaging challenges such as building the tallest tower, creating a bridge with limited pieces, or representing an abstract idea. These activities are sometimes lightly competitive and are designed to get students participating quickly. What matters is how they justify their build and make their thinking visible.</p>
+          </div>
+          <div class="panel-img panel-tl" role="img" aria-label="Building Ideas: students collaborating around a tower of bricks"></div>
+        </div>
 
-        <p>The session then shifts. Students use builds to explore ideas about themselves, including strengths, goals, challenges, and how they experience school. Prompts are intentionally open so students can define them in ways that feel meaningful. This becomes a form of experience mapping, where students make visible where they feel confident, where they feel stretched, where they feel supported, and where they feel challenged. The process can function like group advising or counseling, without feeling like it.</p>
-        <ul>
-          <li>Start with problem-solving builds focused on interpretation and explanation</li>
-          <li>Use building to explore personal experiences and abstract ideas</li>
-          <li>Map individual experiences of school through builds and shared reflection</li>
-          <li>Share and interpret models to understand different ways of thinking</li>
-          <li>Build onto and combine models to experience collaboration and collective meaning</li>
-          <li>Use shared builds to open conversation about relationships, belonging, and inclusion</li>
-        </ul>
+        <!-- Reflection section beside Thinking Through Problem Solving panel (top-right) -->
+        <div class="panel-row img-left">
+          <div class="panel-img panel-tr" role="img" aria-label="Thinking Through Problem Solving: students working through a structured challenge"></div>
+          <div class="panel-row-text">
+            <p>The session then shifts. Students use builds to explore ideas about themselves, including strengths, goals, challenges, and how they experience school. Prompts are intentionally open so students can define them in ways that feel meaningful. This becomes a form of experience mapping, where students make visible where they feel confident, where they feel stretched, where they feel supported, and where they feel challenged. The process can function like group advising or counseling, without feeling like it.</p>
+            <ul>
+              <li>Start with problem-solving builds focused on interpretation and explanation</li>
+              <li>Use building to explore personal experiences and abstract ideas</li>
+              <li>Map individual experiences of school through builds and shared reflection</li>
+              <li>Share and interpret models to understand different ways of thinking</li>
+              <li>Build onto and combine models to experience collaboration and collective meaning</li>
+              <li>Use shared builds to open conversation about relationships, belonging, and inclusion</li>
+            </ul>
+          </div>
+        </div>
 
-        <!-- Top-right panel: Thinking Through Problem Solving -->
-        <div class="panel-crop panel-tr panel-below" role="img" aria-label="Thinking Through Problem Solving: students working through a structured challenge"></div>
-
-        <p style="margin-top:14px;">The outcome is a shift in how students see problem solving and themselves. They begin to recognize that their ideas have value and that challenges can be approached with the tools they already have.</p>
+        <p>The outcome is a shift in how students see problem solving and themselves. They begin to recognize that their ideas have value and that challenges can be approached with the tools they already have.</p>
       </div>
     </div>
 
@@ -382,24 +408,31 @@ footer {
       <div class="card full">
         <h3>Teachers and Administrators: Reflection and Alignment Through Serious Play</h3>
         <p>This workshop follows the same structure, beginning with short, non-technical problem-solving builds that emphasize interpretation and multiple perspectives. These moments create an accessible entry point and are revisited throughout the session to maintain engagement.</p>
-        <p>Builds are then used to represent experiences within the school environment, including team dynamics, burnout, and shifting responsibilities. Participants move through a structured process that blends multiple lenses. They identify strengths and pressures, map assets and barriers, and compare the current state of their environment with where they want it to be. This allows for both honest reflection and forward-looking alignment without the process feeling rigid or overly formal.</p>
+        <p style="margin-bottom:14px;">Builds are then used to represent experiences within the school environment, including team dynamics, burnout, and shifting responsibilities. Participants move through a structured process that blends multiple lenses. They identify strengths and pressures, map assets and barriers, and compare the current state of their environment with where they want it to be. This allows for both honest reflection and forward-looking alignment without the process feeling rigid or overly formal.</p>
 
-        <!-- Bottom-left panel: SWOT Analysis -->
-        <div class="panel-crop panel-bl panel-above" role="img" aria-label="SWOT Analysis workshop: guided session mapping strengths, weaknesses, opportunities, and threats"></div>
+        <!-- Bullet list beside SWOT panel (bottom-left) -->
+        <div class="panel-row img-right">
+          <div class="panel-row-text">
+            <ul>
+              <li>Begin with problem-solving builds that surface different approaches and perspectives</li>
+              <li>Use models to represent individual experiences within the school</li>
+              <li>Identify strengths, challenges, assets, and barriers through shared builds</li>
+              <li>Compare current realities with a desired future state to support visioning</li>
+              <li>Use structured reflection — including SWOT elements — to clarify priorities and opportunities</li>
+              <li>Combine builds to map how roles and experiences connect across the organization</li>
+            </ul>
+          </div>
+          <div class="panel-img panel-bl" role="img" aria-label="SWOT Analysis workshop: mapping strengths, weaknesses, opportunities, and threats"></div>
+        </div>
 
-        <ul>
-          <li>Begin with problem-solving builds that surface different approaches and perspectives</li>
-          <li>Use models to represent individual experiences within the school</li>
-          <li>Identify strengths, challenges, assets, and barriers through shared builds</li>
-          <li>Compare current realities with a desired future state to support visioning</li>
-          <li>Use structured reflection — including SWOT elements — to clarify priorities and opportunities</li>
-          <li>Combine builds to map how roles and experiences connect across the organization</li>
-        </ul>
+        <!-- Outcome paragraph beside Group Collaboration panel (bottom-right) -->
+        <div class="panel-row img-left">
+          <div class="panel-img panel-br" role="img" aria-label="Group Collaboration: Shared Idea — team building a collective vision together"></div>
+          <div class="panel-row-text">
+            <p>The result is clearer alignment, stronger communication, and a shared understanding of how to move forward, grounded in how people actually experience their work.</p>
+          </div>
+        </div>
 
-        <!-- Bottom-right panel: Group Collaboration -->
-        <div class="panel-crop panel-br panel-below" role="img" aria-label="Group Collaboration: Shared Idea — team building a collective vision together"></div>
-
-        <p style="margin-top:14px;">The result is clearer alignment, stronger communication, and a shared understanding of how to move forward, grounded in how people actually experience their work.</p>
       </div>
     </div>
 
@@ -562,12 +595,8 @@ footer {
           <input type="hidden" name="_subject" value="Workshop Inquiry">
           <button type="submit" class="submit-btn">Send Message</button>
         </form>
-        <div class="form-success" id="form-success">
-          &#10003;&nbsp; Thank you. Your message has been sent.
-        </div>
-        <div class="form-error" id="form-error">
-          There was a problem sending your message. Please email ikee@hackingthesyllabus.ca directly.
-        </div>
+        <div class="form-success" id="form-success">&#10003;&nbsp; Thank you. Your message has been sent.</div>
+        <div class="form-error" id="form-error">There was a problem sending your message. Please email ikee@hackingthesyllabus.ca directly.</div>
       </div>
     </div>
   </div>
@@ -647,14 +676,12 @@ contactForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   formSuccess.style.display = "none";
   formError.style.display = "none";
-
   try {
     const response = await fetch(contactForm.action, {
       method: "POST",
       body: new FormData(contactForm),
       headers: { "Accept": "application/json" }
     });
-
     if (response.ok) {
       contactForm.reset();
       otherFocusWrap.classList.add("hidden");
