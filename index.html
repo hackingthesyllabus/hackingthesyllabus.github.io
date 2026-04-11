@@ -58,11 +58,7 @@ nav .nav-logo {
   letter-spacing: 0.5px;
   white-space: nowrap;
 }
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 28px;
-}
+nav ul { display: flex; list-style: none; gap: 28px; }
 nav ul a {
   color: rgba(240,237,228,0.75);
   font-size: 13px;
@@ -147,7 +143,6 @@ h2 {
   border: 1px solid rgba(0,0,0,0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .card:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 0 rgba(0,0,0,0.09), 0 16px 32px rgba(0,0,0,0.10);
@@ -157,14 +152,38 @@ h2 {
 .card h3 { margin: 0 0 10px; font-size: 17px; color: var(--deep); }
 .card p { color: var(--muted); margin: 0 0 10px; font-size: 14.5px; line-height: 1.7; }
 .card p:last-child { margin-bottom: 0; }
-
 .card ul {
-  margin: 12px 0 0 20px;
+  margin: 0 0 0 20px;
   color: var(--muted);
   font-size: 14.5px;
   line-height: 1.8;
 }
 .card li { margin-bottom: 6px; }
+
+/* ── Workshop panel illustrations ── */
+.workshop-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 16px 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.panel-crop {
+  /* Each panel is half the image width and half the image height.
+     background-size: 200% 200% means the full image fills 2× the container,
+     and background-position selects which quadrant is visible. */
+  background-image: url(workshop-panels.png);
+  background-size: 200% 200%;
+  background-repeat: no-repeat;
+  aspect-ratio: 771 / 420;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.07);
+}
+.panel-tl { background-position: 0%   0%;   }
+.panel-tr { background-position: 100% 0%;   }
+.panel-bl { background-position: 0%   100%; }
+.panel-br { background-position: 100% 100%; }
 
 .callout { font-size: 15px; color: var(--ink); line-height: 1.7; }
 .callout strong { color: var(--deep); }
@@ -176,10 +195,7 @@ h2 {
   transform: translateY(22px);
   transition: opacity 0.55s ease, transform 0.55s ease;
 }
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.reveal.visible { opacity: 1; transform: translateY(0); }
 
 .about-layout { display: grid; gap: 28px; align-items: start; grid-template-columns: 240px 1fr; }
 
@@ -206,20 +222,9 @@ h2 {
 .about-name { font-family: "Montserrat", sans-serif; font-size: 19px; font-weight: 700; color: var(--deep); margin: 0 0 3px !important; }
 .about-role { font-size: 12px; color: var(--accent); font-weight: 500; margin: 0 0 16px !important; letter-spacing: 0.4px; text-transform: uppercase; }
 
-.contact-card h3 {
-  margin: 0 0 8px;
-  font-size: 18px;
-  color: var(--deep);
-}
-.contact-email {
-  margin: 0 0 18px;
-  font-size: 14px;
-  color: var(--muted);
-}
-.contact-email a {
-  color: var(--deep);
-  font-weight: 600;
-}
+.contact-card h3 { margin: 0 0 8px; font-size: 18px; color: var(--deep); }
+.contact-email { margin: 0 0 18px; font-size: 14px; color: var(--muted); }
+.contact-email a { color: var(--deep); font-weight: 600; }
 .hidden { display: none; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
 .form-grid .span2 { grid-column: 1 / -1; }
@@ -277,16 +282,8 @@ textarea { min-height: 100px; }
   transition: width 0.1s linear; z-index: 999;
 }
 
-.keyword-strip {
-  padding: 40px 0;
-  text-align: center;
-}
-.keyword-strip .wrap {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
+.keyword-strip { padding: 40px 0; text-align: center; }
+.keyword-strip .wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
 .keyword-strip span {
   display: inline-block;
   padding: 5px 14px;
@@ -354,34 +351,56 @@ footer {
   <div class="wrap">
     <h2>Serious Play Workshops</h2>
 
+    <!-- ── Student Workshop ── -->
     <div class="row reveal">
       <div class="card full">
         <h3>Student Workshop: Problem Solving, Voice, and Decision Making Through Play</h3>
-        <p>This workshop shifts how students experience problem solving by focusing on how they think rather than on arriving at a single correct answer. Through hands-on model building and structured scenarios, students develop skills that carry well beyond the session:</p>
+        <p>This is not LEGO robotics or technical building. There is no coding or expectation of expertise. Students build with simple materials, and the focus is not on what they produce, but on how they interpret a task and explain their thinking.</p>
+        <p>The workshop begins with short, engaging challenges such as building the tallest tower, creating a bridge with limited pieces, or representing an abstract idea. These activities are sometimes lightly competitive and are designed to get students participating quickly. What matters is how they justify their build and make their thinking visible.</p>
+
+        <!-- Top-left and top-right panels from the illustration -->
+        <div class="workshop-panels">
+          <div class="panel-crop panel-tl" role="img" aria-label="Building Ideas: students collaborating around a LEGO tower"></div>
+          <div class="panel-crop panel-tr" role="img" aria-label="Thinking Through Problem Solving: students working through a structured challenge"></div>
+        </div>
+
+        <p>The session then shifts. Students use builds to explore ideas about themselves, including strengths, goals, challenges, and how they experience school. Prompts are intentionally open so students can define them in ways that feel meaningful. The process can function like group advising or counseling, without feeling like it.</p>
         <ul>
-          <li>Practice interpreting information and explaining their reasoning in real time</li>
-          <li>Build flexibility, experimentation, and confidence through play-based activities</li>
-          <li>Make thinking visible so students can reflect on and strengthen their own approaches</li>
-          <li>Engage more openly and take risks they might otherwise avoid</li>
-          <li>Build stronger connections to their own learning, especially during exam preparation or academic transitions</li>
+          <li>Start with problem-solving builds focused on interpretation and explanation</li>
+          <li>Use building to explore personal experiences and abstract ideas</li>
+          <li>Share and interpret models to understand different ways of thinking</li>
+          <li>Build onto and combine models to experience collaboration and collective meaning</li>
+          <li>Use shared builds to open conversation about relationships, belonging, and inclusion</li>
         </ul>
+        <p style="margin-top:14px;">The outcome is a shift in how students see problem solving and themselves. They begin to recognize that their ideas have value and that challenges can be approached with the tools they already have.</p>
       </div>
     </div>
 
+    <!-- ── Teachers and Administrators Workshop ── -->
     <div class="row reveal">
       <div class="card full">
-        <h3>Teachers Can Play Too: Reflection and Alignment Through Serious Play</h3>
-        <p>This workshop creates a structured space for educators and administrators to surface insights that are often left unspoken. Using guided model building and reflection, participants explore complex topics through metaphor, allowing difficult conversations to feel constructive rather than confrontational.</p>
+        <h3>Teachers and Administrators: Reflection and Alignment Through Serious Play</h3>
+        <p>This workshop follows the same structure, beginning with short, non-technical problem-solving builds that emphasize interpretation and multiple perspectives. These moments are used throughout to maintain engagement while creating space for more complex discussions.</p>
+        <p>Builds are then used to represent experiences within the school environment, including team dynamics, burnout, and shifting responsibilities. The process supports reflection and dialogue without feeling formal or evaluative.</p>
+
+        <!-- Bottom-left and bottom-right panels from the illustration -->
+        <div class="workshop-panels">
+          <div class="panel-crop panel-bl" role="img" aria-label="SWOT Analysis: guided workshop using LEGO to map strengths, weaknesses, opportunities, and threats"></div>
+          <div class="panel-crop panel-br" role="img" aria-label="Group Collaboration: Shared Idea — team building a collective vision together"></div>
+        </div>
+
         <ul>
-          <li>Explore challenges like student engagement, burnout, and institutional change through hands-on methods</li>
-          <li>Move from individual reflection to collective alignment</li>
-          <li>Connect personal experiences to shared challenges and coordinated action</li>
-          <li>Delivered as a single session or across multiple meetings</li>
-          <li>Build stronger alignment among staff and clearer direction for improving school environments</li>
+          <li>Begin with problem-solving builds that surface different approaches and perspectives</li>
+          <li>Use models to represent individual experiences within the school</li>
+          <li>Share and interpret builds to identify patterns, gaps, and alignment</li>
+          <li>Engage in a guided SWOT process — strengths, weaknesses, opportunities, threats — to support visioning and innovation</li>
+          <li>Combine builds to map how roles and experiences connect across the organization</li>
         </ul>
+        <p style="margin-top:14px;">The result is clearer alignment, stronger communication, and a shared understanding of how to move forward.</p>
       </div>
     </div>
 
+    <!-- ── Strategic Vision + EDI ── -->
     <div class="row reveal">
       <div class="card">
         <h3>Strategic Vision and Direction Setting</h3>
@@ -392,7 +411,6 @@ footer {
           <li>Move forward with clarity and alignment</li>
         </ul>
       </div>
-
       <div class="card">
         <h3>Equity, Diversity, and Inclusion Dialogue</h3>
         <p>Sensitive conversations around equity and difference are approached through structured, facilitated engagement.</p>
@@ -404,6 +422,7 @@ footer {
       </div>
     </div>
 
+    <!-- ── Leadership + Culture ── -->
     <div class="row reveal">
       <div class="card">
         <h3>Leadership and Cross-Level Alignment</h3>
@@ -414,7 +433,6 @@ footer {
           <li>Identify where coordination breaks down and what needs to shift</li>
         </ul>
       </div>
-
       <div class="card">
         <h3>Culture and Team Cohesion</h3>
         <p>Create conditions where unspoken dynamics can be expressed constructively.</p>
@@ -425,6 +443,7 @@ footer {
         </ul>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -435,8 +454,8 @@ footer {
       <div class="full section-intro">For over eight years, I have designed and facilitated serious play style workshops across boardroom settings, team environments, education spaces, and youth focused programs. Sessions often include LEGO and other simple hands-on tools. The purpose is to lower defenses so groups can surface what is usually hard to say, explore options faster, and move toward shared clarity.</div>
     </div>
     <div class="row reveal">
-      <div class="card"><h3>Research grounded documentation</h3><p>I combine facilitation with research based techniques for data gathering, coding, and synthesis. Organizations can receive tailored deliverables such as thematic summaries, decision logs, and management ready reports. Reporting can draw on qualitative and quantitative approaches depending on the goal and the engagement format.</p></div>
-      <div class="card"><h3>Important note</h3><p>This work draws inspiration from serious play style facilitation. It does not claim LEGO Serious Play certification.</p></div>
+      <div class="card"><h3>Research Grounded Documentation</h3><p>I combine facilitation with research based techniques for data gathering, coding, and synthesis. Organizations can receive tailored deliverables such as thematic summaries, decision logs, and management ready reports. Reporting can draw on qualitative and quantitative approaches depending on the goal and the engagement format.</p></div>
+      <div class="card"><h3>Important Note</h3><p>This work draws inspiration from serious play style facilitation. It does not claim LEGO Serious Play certification.</p></div>
     </div>
   </div>
 </section>
@@ -448,8 +467,8 @@ footer {
       <div class="full section-intro">Sessions can be two hours, three hours, half day, full day, or a three day engagement that brings in different stakeholder groups. Group sizes can be four to twenty. The ideal size is eight to twelve.</div>
     </div>
     <div class="row reveal">
-      <div class="card"><h3>How it works</h3><p>We start with a short discovery conversation to clarify outcomes and participants. I then design the session structure and any light prework. We run the workshop and close with clear themes, decisions, and next steps.</p></div>
-      <div class="card"><h3>Documentation options</h3><p>Documentation can include a synthesis memo, leadership ready recommendations, or visual documentation when useful. Scope depends on your goals, session length, and how many stakeholder groups are involved.</p></div>
+      <div class="card"><h3>How It Works</h3><p>We start with a short discovery conversation to clarify outcomes and participants. I then design the session structure and any light prework. We run the workshop and close with clear themes, decisions, and next steps.</p></div>
+      <div class="card"><h3>Documentation Options</h3><p>Documentation can include a synthesis memo, leadership ready recommendations, or visual documentation when useful. Scope depends on your goals, session length, and how many stakeholder groups are involved.</p></div>
     </div>
   </div>
 </section>
@@ -519,14 +538,12 @@ footer {
               <label for="interest">Workshop focus</label>
               <select id="interest" name="Workshop focus" required>
                 <option value="">Select a focus area&hellip;</option>
-                <option>Professional development</option>
-                <option>Student problem solving and engagement</option>
-                <option>Difficult conversations</option>
-                <option>Team building</option>
-                <option>Leadership and cross-level alignment</option>
-                <option>Culture and team cohesion</option>
-                <option>Strategic vision and direction setting</option>
-                <option>Equity, diversity, and inclusion dialogue</option>
+                <option>Student Workshop: Problem Solving, Voice, and Decision Making Through Play</option>
+                <option>Teachers and Administrators: Reflection and Alignment Through Serious Play</option>
+                <option>Strategic Vision and Direction Setting</option>
+                <option>Equity, Diversity, and Inclusion Dialogue</option>
+                <option>Leadership and Cross-Level Alignment</option>
+                <option>Culture and Team Cohesion</option>
                 <option>Other</option>
               </select>
             </div>
