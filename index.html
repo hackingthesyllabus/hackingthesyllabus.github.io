@@ -139,8 +139,8 @@ h2 {
   position: relative;
   overflow: hidden;
   border-radius: 7px;
-  aspect-ratio: 704 / 384; /* exact quadrant proportions */
-  background: #f5f5f5;     /* placeholder while image loads */
+  aspect-ratio: 704 / 384;
+  background: #f5f5f5;
 }
 .panel-crop img {
   position: absolute;
@@ -148,9 +148,7 @@ h2 {
   height: 200%;
   max-width: none;
   display: block;
-  /* object-fit not used — we control sizing manually */
 }
-/* Select quadrant by moving the oversized image */
 .panel-tl img { top: 0;   left: 0;   }
 .panel-tr img { top: 0;   right: 0;  }
 .panel-bl img { bottom: 0; left: 0;  }
@@ -168,7 +166,6 @@ h2 {
   line-height: 1.4;
 }
 
-/* Thin rule used to create breathing room inside staff card */
 .section-rule {
   border: none;
   border-top: 1px solid rgba(0,0,0,0.07);
@@ -264,18 +261,165 @@ footer {
   font-size: 13px; color: rgba(255,255,255,0.45); text-align: center;
 }
 
+/* ── Collapsible details/summary styling ────────────────────────────────── */
+details.collapse-section {
+  background: rgba(255,255,255,0.95);
+  border-radius: 8px;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.09), 0 8px 20px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+details.collapse-section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 rgba(0,0,0,0.09), 0 14px 28px rgba(0,0,0,0.09);
+}
+details.collapse-section summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+details.collapse-section summary::-webkit-details-marker { display: none; }
+details.collapse-section summary::marker { display: none; content: ''; }
+
+details.collapse-section summary h3 {
+  margin: 0;
+  font-size: 17px;
+  color: var(--deep);
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: -0.3px;
+  flex: 1;
+  padding-right: 16px;
+}
+
+details.collapse-section summary .chevron {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(47,55,44,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background 0.2s ease;
+}
+details.collapse-section summary .chevron svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--deep);
+  stroke-width: 2.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+details.collapse-section summary:hover .chevron {
+  background: rgba(47,55,44,0.14);
+}
+details.collapse-section[open] summary .chevron {
+  transform: rotate(180deg);
+}
+
+details.collapse-section .collapse-body {
+  padding: 0 24px 22px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Section-level collapsibles (Method, Format, Pricing) */
+details.collapse-section.section-collapse {
+  margin-top: 16px;
+}
+details.collapse-section.section-collapse summary h3 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Summary hint text */
+details.collapse-section summary .summary-hint {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+  margin-left: 12px;
+  opacity: 0.7;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+}
+details.collapse-section[open] summary .summary-hint {
+  opacity: 0;
+}
+
+/* Row layout adjustments for collapse cards */
+.row-collapse {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.row-collapse:last-child { margin-bottom: 0; }
+.row-collapse .full { grid-column: 1 / -1; }
+
+/* Inner content styling within collapse body */
+.collapse-body p  { color: var(--muted); font-size: 14.5px; line-height: 1.7; margin: 0 0 10px; }
+.collapse-body p:last-child { margin-bottom: 0; }
+.collapse-body ul { margin: 0 0 10px 20px; color: var(--muted); font-size: 14.5px; line-height: 1.8; }
+.collapse-body li { margin-bottom: 5px; }
+
+/* Section-level collapse inner cards */
+.inner-card {
+  background: rgba(255,255,255,0.6);
+  border-radius: 6px;
+  padding: 18px 20px;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.inner-card h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--deep);
+  margin: 0 0 10px;
+  letter-spacing: -0.2px;
+}
+.inner-card p {
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.7;
+  margin: 0 0 10px;
+}
+.inner-card p:last-child { margin-bottom: 0; }
+.inner-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
 @media(max-width: 860px) {
   .row { grid-template-columns: 1fr; }
   .row .full { grid-column: 1; }
+  .row-collapse { grid-template-columns: 1fr; }
+  .row-collapse .full { grid-column: 1; }
   .about-layout { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }
   .form-grid .span2 { grid-column: 1; }
+  .inner-row { grid-template-columns: 1fr; }
   nav ul { gap: 16px; }
 }
 @media(max-width: 600px) {
   :root { --border: 12px; }
   nav { padding: 0 16px; }
   .panels-grid { grid-template-columns: 1fr; }
+  details.collapse-section summary .summary-hint { display: none; }
 }
 </style>
 </head>
@@ -315,121 +459,153 @@ footer {
     <h2>Serious Play Workshops</h2>
 
     <!-- ── Student Workshop ── -->
-    <div class="row reveal">
-      <div class="card full">
-        <h3>Student Workshop: Problem Solving, Voice, and Decision Making Through Play</h3>
+    <div class="row-collapse reveal">
+      <details class="collapse-section full">
+        <summary>
+          <h3>Student Workshop: Problem Solving, Voice, and Decision Making Through Play</h3>
+          <span class="summary-hint">Read more</span>
+          <span class="chevron"><svg viewBox="0 0 16 16"><polyline points="3 6 8 11 13 6"/></svg></span>
+        </summary>
+        <div class="collapse-body">
+          <p>This is not LEGO robotics or technical building. There is no coding or expectation of expertise. Students build with simple materials, and the focus is not on what they produce, but on how they interpret a task and explain their thinking.</p>
+          <p>The workshop begins with short, engaging challenges such as building the tallest tower, creating a bridge with limited pieces, or representing an abstract idea. These activities are sometimes lightly competitive and are designed to get students participating quickly. What matters is how they justify their build and make their thinking visible.</p>
 
-        <p>This is not LEGO robotics or technical building. There is no coding or expectation of expertise. Students build with simple materials, and the focus is not on what they produce, but on how they interpret a task and explain their thinking.</p>
-        <p>The workshop begins with short, engaging challenges such as building the tallest tower, creating a bridge with limited pieces, or representing an abstract idea. These activities are sometimes lightly competitive and are designed to get students participating quickly. What matters is how they justify their build and make their thinking visible.</p>
+          <div class="panels-grid">
+            <figure class="panel-figure">
+              <div class="panel-crop panel-tl">
+                <img src="workshop-panels.png" alt="Students collaborating around a growing tower of bricks">
+              </div>
+              <figcaption class="panel-caption">Building Ideas</figcaption>
+            </figure>
+            <figure class="panel-figure">
+              <div class="panel-crop panel-tr">
+                <img src="workshop-panels.png" alt="Students working through a structured problem-solving challenge">
+              </div>
+              <figcaption class="panel-caption">Individual and Collaborative Problem Solving and Abstraction</figcaption>
+            </figure>
+          </div>
 
-        <!-- Panels appear as a visual break, illustrating the two phases -->
-        <div class="panels-grid">
-          <figure class="panel-figure">
-            <div class="panel-crop panel-tl">
-              <img src="workshop-panels.png" alt="Students collaborating around a growing tower of bricks">
-            </div>
-            <figcaption class="panel-caption">Building Ideas</figcaption>
-          </figure>
-          <figure class="panel-figure">
-            <div class="panel-crop panel-tr">
-              <img src="workshop-panels.png" alt="Students working through a structured problem-solving challenge">
-            </div>
-            <figcaption class="panel-caption">Individual and Collaborative Problem Solving and Abstraction</figcaption>
-          </figure>
+          <p>The session then shifts. Students use builds to explore ideas about themselves, including strengths, goals, challenges, and how they experience school. Prompts are intentionally open so students can define them in ways that feel meaningful. This becomes a form of experience mapping, where students make visible where they feel confident, where they feel stretched, where they feel supported, and where they feel challenged. The process can function like group advising or counseling, without feeling like it.</p>
+          <ul>
+            <li>Start with problem-solving builds focused on interpretation and explanation</li>
+            <li>Use building to explore personal experiences and abstract ideas</li>
+            <li>Map individual experiences of school through builds and shared reflection</li>
+            <li>Share and interpret models to understand different ways of thinking</li>
+            <li>Build onto and combine models to experience collaboration and collective meaning</li>
+            <li>Use shared builds to open conversation about relationships, belonging, and inclusion</li>
+          </ul>
+          <p style="margin-top:10px;">The outcome is a shift in how students see problem solving and themselves. They begin to recognize that their ideas have value and that challenges can be approached with the tools they already have.</p>
         </div>
-
-        <p>The session then shifts. Students use builds to explore ideas about themselves, including strengths, goals, challenges, and how they experience school. Prompts are intentionally open so students can define them in ways that feel meaningful. This becomes a form of experience mapping, where students make visible where they feel confident, where they feel stretched, where they feel supported, and where they feel challenged. The process can function like group advising or counseling, without feeling like it.</p>
-        <ul>
-          <li>Start with problem-solving builds focused on interpretation and explanation</li>
-          <li>Use building to explore personal experiences and abstract ideas</li>
-          <li>Map individual experiences of school through builds and shared reflection</li>
-          <li>Share and interpret models to understand different ways of thinking</li>
-          <li>Build onto and combine models to experience collaboration and collective meaning</li>
-          <li>Use shared builds to open conversation about relationships, belonging, and inclusion</li>
-        </ul>
-        <p style="margin-top:10px;">The outcome is a shift in how students see problem solving and themselves. They begin to recognize that their ideas have value and that challenges can be approached with the tools they already have.</p>
-      </div>
+      </details>
     </div>
 
     <!-- ── Teachers and Administrators Workshop ── -->
-    <div class="row reveal">
-      <div class="card full">
-        <h3>Teachers and Administrators: Reflection and Alignment Through Serious Play</h3>
+    <div class="row-collapse reveal">
+      <details class="collapse-section full">
+        <summary>
+          <h3>Teachers and Administrators: Reflection and Alignment Through Serious Play</h3>
+          <span class="summary-hint">Read more</span>
+          <span class="chevron"><svg viewBox="0 0 16 16"><polyline points="3 6 8 11 13 6"/></svg></span>
+        </summary>
+        <div class="collapse-body">
+          <p>This workshop follows the same structure, beginning with short, non-technical problem-solving builds that emphasize interpretation and multiple perspectives. These moments create an accessible entry point and are revisited throughout the session to maintain engagement.</p>
+          <p>Builds are then used to represent experiences within the school environment, including team dynamics, burnout, and shifting responsibilities. Participants move through a structured process that blends multiple lenses. They identify strengths and pressures, map assets and barriers, and compare the current state of their environment with where they want it to be. This allows for both honest reflection and forward-looking alignment without the process feeling rigid or overly formal.</p>
 
-        <p>This workshop follows the same structure, beginning with short, non-technical problem-solving builds that emphasize interpretation and multiple perspectives. These moments create an accessible entry point and are revisited throughout the session to maintain engagement.</p>
-        <p>Builds are then used to represent experiences within the school environment, including team dynamics, burnout, and shifting responsibilities. Participants move through a structured process that blends multiple lenses. They identify strengths and pressures, map assets and barriers, and compare the current state of their environment with where they want it to be. This allows for both honest reflection and forward-looking alignment without the process feeling rigid or overly formal.</p>
+          <ul>
+            <li>Begin with problem-solving builds that surface different approaches and perspectives</li>
+            <li>Use models to represent individual experiences within the school</li>
+            <li>Identify strengths, challenges, assets, and barriers through shared builds</li>
+            <li>Compare current realities with a desired future state to support visioning</li>
+            <li>Use structured reflection — including SWOT elements — to clarify priorities and opportunities</li>
+            <li>Combine builds to map how roles and experiences connect across the organization</li>
+          </ul>
 
-        <ul>
-          <li>Begin with problem-solving builds that surface different approaches and perspectives</li>
-          <li>Use models to represent individual experiences within the school</li>
-          <li>Identify strengths, challenges, assets, and barriers through shared builds</li>
-          <li>Compare current realities with a desired future state to support visioning</li>
-          <li>Use structured reflection — including SWOT elements — to clarify priorities and opportunities</li>
-          <li>Combine builds to map how roles and experiences connect across the organization</li>
-        </ul>
+          <div class="panels-grid" style="margin-top:20px;">
+            <figure class="panel-figure">
+              <div class="panel-crop panel-bl">
+                <img src="workshop-panels.png" alt="Participants working through a SWOT analysis on a whiteboard">
+              </div>
+              <figcaption class="panel-caption">SWOT Analysis</figcaption>
+            </figure>
+            <figure class="panel-figure">
+              <div class="panel-crop panel-br">
+                <img src="workshop-panels.png" alt="Group collaborating around a shared model, building a collective vision">
+              </div>
+              <figcaption class="panel-caption">Collaborative Problem Solving and Visioning</figcaption>
+            </figure>
+          </div>
 
-        <!-- Panels appear after the bullets, illustrating the analytical and collective phases -->
-        <div class="panels-grid" style="margin-top:20px;">
-          <figure class="panel-figure">
-            <div class="panel-crop panel-bl">
-              <img src="workshop-panels.png" alt="Participants working through a SWOT analysis on a whiteboard">
-            </div>
-            <figcaption class="panel-caption">SWOT Analysis</figcaption>
-          </figure>
-          <figure class="panel-figure">
-            <div class="panel-crop panel-br">
-              <img src="workshop-panels.png" alt="Group collaborating around a shared model, building a collective vision">
-            </div>
-            <figcaption class="panel-caption">Collaborative Problem Solving and Visioning</figcaption>
-          </figure>
+          <p style="margin-top:20px;">The result is clearer alignment, stronger communication, and a shared understanding of how to move forward, grounded in how people actually experience their work.</p>
         </div>
-
-        <p style="margin-top:20px;">The result is clearer alignment, stronger communication, and a shared understanding of how to move forward, grounded in how people actually experience their work.</p>
-      </div>
+      </details>
     </div>
 
     <!-- ── Strategic Vision + EDI ── -->
-    <div class="row reveal">
-      <div class="card">
-        <h3>Strategic Vision and Direction Setting</h3>
-        <p>When priorities compete and direction becomes diffuse, these sessions help leadership make tradeoffs visible and decisions explicit.</p>
-        <ul>
-          <li>Build a shared understanding of what success requires</li>
-          <li>Identify what must stop, begin, or change</li>
-          <li>Move forward with clarity and alignment</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Equity, Diversity, and Inclusion Dialogue</h3>
-        <p>Sensitive conversations around equity and difference are approached through structured, facilitated engagement.</p>
-        <ul>
-          <li>Reduce escalation while maintaining honesty</li>
-          <li>Examine how identity, perspective, and power shape collaboration</li>
-          <li>Support stability and long term organizational durability</li>
-        </ul>
-      </div>
+    <div class="row-collapse reveal">
+      <details class="collapse-section">
+        <summary>
+          <h3>Strategic Vision and Direction Setting</h3>
+          <span class="summary-hint">Read more</span>
+          <span class="chevron"><svg viewBox="0 0 16 16"><polyline points="3 6 8 11 13 6"/></svg></span>
+        </summary>
+        <div class="collapse-body">
+          <p>When priorities compete and direction becomes diffuse, these sessions help leadership make tradeoffs visible and decisions explicit.</p>
+          <ul>
+            <li>Build a shared understanding of what success requires</li>
+            <li>Identify what must stop, begin, or change</li>
+            <li>Move forward with clarity and alignment</li>
+          </ul>
+        </div>
+      </details>
+      <details class="collapse-section">
+        <summary>
+          <h3>Equity, Diversity, and Inclusion Dialogue</h3>
+          <span class="summary-hint">Read more</span>
+          <span class="chevron"><svg viewBox="0 0 16 16"><polyline points="3 6 8 11 13 6"/></svg></span>
+        </summary>
+        <div class="collapse-body">
+          <p>Sensitive conversations around equity and difference are approached through structured, facilitated engagement.</p>
+          <ul>
+            <li>Reduce escalation while maintaining honesty</li>
+            <li>Examine how identity, perspective, and power shape collaboration</li>
+            <li>Support stability and long term organizational durability</li>
+          </ul>
+        </div>
+      </details>
     </div>
 
     <!-- ── Leadership + Culture ── -->
-    <div class="row reveal">
-      <div class="card">
-        <h3>Leadership and Cross-Level Alignment</h3>
-        <p>These sessions bring executives, managers, and frontline staff into a single structured space.</p>
-        <ul>
-          <li>Surface and align assumptions across levels</li>
-          <li>Develop a shared working model of how the organization actually functions</li>
-          <li>Identify where coordination breaks down and what needs to shift</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Culture and Team Cohesion</h3>
-        <p>Create conditions where unspoken dynamics can be expressed constructively.</p>
-        <ul>
-          <li>Strengthen trust and clarify expectations</li>
-          <li>Reinforce accountability under pressure</li>
-          <li>Build cohesion that is embedded in day to day practice, not temporary</li>
-        </ul>
-      </div>
+    <div class="row-collapse reveal">
+      <details class="collapse-section">
+        <summary>
+          <h3>Leadership and Cross-Level Alignment</h3>
+          <span class="summary-hint">Read more</span>
+          <span class="chevron"><svg viewBox="0 0 16 16"><polyline points="3 6 8 11 13 6"/></svg></span>
+        </summary>
+        <div class="collapse-body">
+          <p>These sessions bring executives, managers, and frontline staff into a single structured space.</p>
+          <ul>
+            <li>Surface and align assumptions across levels</li>
+            <li>Develop a shared working model of how the organization actually functions</li>
+            <li>Identify where coordination breaks down and what needs to shift</li>
+          </ul>
+        </div>
+      </details>
+      <details class="collapse-section">
+        <summary>
+          <h3>Culture and Team Cohesion</h3>
+          <span class="summary-hint">Read more</span>
+          <span class="chevron"><svg viewBox="0 0 16 16"><polyline points="3 6 8 11 13 6"/></svg></span>
+        </summary>
+        <div class="collapse-body">
+          <p>Create conditions where unspoken dynamics can be expressed constructively.</p>
+          <ul>
+            <li>Strengthen trust and clarify expectations</li>
+            <li>Reinforce accountability under pressure</li>
+            <li>Build cohesion that is embedded in day to day practice, not temporary</li>
+          </ul>
+        </div>
+      </details>
     </div>
 
   </div>
@@ -438,12 +614,27 @@ footer {
 <section id="method">
   <div class="wrap">
     <h2>Method &amp; Outputs</h2>
-    <div class="row reveal">
-      <div class="full section-intro">For over eight years, I have designed and facilitated serious play style workshops across boardroom settings, team environments, education spaces, and youth focused programs. Sessions often include LEGO and other simple hands-on tools. The purpose is to lower defenses so groups can surface what is usually hard to say, explore options faster, and move toward shared clarity.</div>
-    </div>
-    <div class="row reveal">
-      <div class="card"><h3>Research Grounded Documentation</h3><p>I combine facilitation with research based techniques for data gathering, coding, and synthesis. Organizations can receive tailored deliverables such as thematic summaries, decision logs, and management ready reports. Reporting can draw on qualitative and quantitative approaches depending on the goal and the engagement format.</p></div>
-      <div class="card"><h3>Important Note</h3><p>This work draws inspiration from serious play style facilitation. It does not claim LEGO Serious Play certification.</p></div>
+    <div class="row-collapse reveal">
+      <details class="collapse-section full">
+        <summary>
+          <h3>Approach and Deliverables</h3>
+          <span class="summary-hint">Read more</span>
+          <span class="chevron"><svg viewBox="0 0 16 16"><polyline points="3 6 8 11 13 6"/></svg></span>
+        </summary>
+        <div class="collapse-body">
+          <p>For over eight years, I have designed and facilitated serious play style workshops across boardroom settings, team environments, education spaces, and youth focused programs. Sessions often include LEGO and other simple hands-on tools. The purpose is to lower defenses so groups can surface what is usually hard to say, explore options faster, and move toward shared clarity.</p>
+          <div class="inner-row">
+            <div class="inner-card">
+              <h4>Research Grounded Documentation</h4>
+              <p>I combine facilitation with research based techniques for data gathering, coding, and synthesis. Organizations can receive tailored deliverables such as thematic summaries, decision logs, and management ready reports. Reporting can draw on qualitative and quantitative approaches depending on the goal and the engagement format.</p>
+            </div>
+            <div class="inner-card">
+              <h4>Important Note</h4>
+              <p>This work draws inspiration from serious play style facilitation. It does not claim LEGO Serious Play certification.</p>
+            </div>
+          </div>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -451,12 +642,27 @@ footer {
 <section id="formats">
   <div class="wrap">
     <h2>Format</h2>
-    <div class="row reveal">
-      <div class="full section-intro">Sessions can be two hours, three hours, half day, full day, or a three day engagement that brings in different stakeholder groups. Group sizes can be four to twenty. The ideal size is eight to twelve.</div>
-    </div>
-    <div class="row reveal">
-      <div class="card"><h3>How It Works</h3><p>We start with a short discovery conversation to clarify outcomes and participants. I then design the session structure and any light prework. We run the workshop and close with clear themes, decisions, and next steps.</p></div>
-      <div class="card"><h3>Documentation Options</h3><p>Documentation can include a synthesis memo, leadership ready recommendations, or visual documentation when useful. Scope depends on your goals, session length, and how many stakeholder groups are involved.</p></div>
+    <div class="row-collapse reveal">
+      <details class="collapse-section full">
+        <summary>
+          <h3>Session Structure and Options</h3>
+          <span class="summary-hint">Read more</span>
+          <span class="chevron"><svg viewBox="0 0 16 16"><polyline points="3 6 8 11 13 6"/></svg></span>
+        </summary>
+        <div class="collapse-body">
+          <p>Sessions can be two hours, three hours, half day, full day, or a three day engagement that brings in different stakeholder groups. Group sizes can be four to twenty. The ideal size is eight to twelve.</p>
+          <div class="inner-row">
+            <div class="inner-card">
+              <h4>How It Works</h4>
+              <p>We start with a short discovery conversation to clarify outcomes and participants. I then design the session structure and any light prework. We run the workshop and close with clear themes, decisions, and next steps.</p>
+            </div>
+            <div class="inner-card">
+              <h4>Documentation Options</h4>
+              <p>Documentation can include a synthesis memo, leadership ready recommendations, or visual documentation when useful. Scope depends on your goals, session length, and how many stakeholder groups are involved.</p>
+            </div>
+          </div>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -464,12 +670,19 @@ footer {
 <section id="pricing">
   <div class="wrap">
     <h2>Pricing</h2>
-    <div class="row reveal">
-      <div class="full pricing-box">
-        <p>Every engagement is custom scoped. Format, duration, and documentation are designed around your objectives.</p>
-        <p>Email a brief description of your goal and timeline, and I will provide a clear proposal.</p>
-        <p><a href="mailto:ikee@hackingthesyllabus.ca?subject=Workshop%20Inquiry" style="color:var(--deep);font-weight:500;">ikee@hackingthesyllabus.ca</a></p>
-      </div>
+    <div class="row-collapse reveal">
+      <details class="collapse-section full">
+        <summary>
+          <h3>Custom Scoping</h3>
+          <span class="summary-hint">Read more</span>
+          <span class="chevron"><svg viewBox="0 0 16 16"><polyline points="3 6 8 11 13 6"/></svg></span>
+        </summary>
+        <div class="collapse-body">
+          <p>Every engagement is custom scoped. Format, duration, and documentation are designed around your objectives.</p>
+          <p>Email a brief description of your goal and timeline, and I will provide a clear proposal.</p>
+          <p><a href="mailto:ikee@hackingthesyllabus.ca?subject=Workshop%20Inquiry" style="color:var(--deep);font-weight:500;">ikee@hackingthesyllabus.ca</a></p>
+        </div>
+      </details>
     </div>
   </div>
 </section>
